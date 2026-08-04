@@ -1,854 +1,909 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- SEO & OpenGraph Meta Tags -->
-  <title>Rishikesh | Web Designer & CSE Engineer | High-Converting Business Websites</title>
-  <meta name="description" content="Portfolio of Rishikesh, a Web Designer and B.Tech CSE Graduate specializing in high-converting e-commerce stores, custom landing pages, and web applications for businesses." />
-  <meta name="keywords" content="Rishikesh, Web Designer, Web Developer, B.Tech CSE, Frontend Developer, Shopify, React Developer, Tailwind CSS, India" />
-  <meta name="author" content="Rishikesh" />
-  <meta property="og:title" content="Rishikesh | Web Designer & CSE Engineer" />
-  <meta property="og:description" content="Helping businesses grow with high-converting, modern, and SEO-optimized web solutions." />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wrishikesh Chowdhury | Web Designer & CSE Engineer | High-Converting Business Websites</title>
+<meta name="description" content="Portfolio of Wrishikesh Chowdhury, a Web Designer and B.Tech CSE graduate specializing in high-converting e-commerce stores, landing pages, and web applications for businesses." />
+<meta name="keywords" content="Wrishikesh Chowdhury, Web Designer, Web Developer, B.Tech CSE, Frontend Developer, Shopify, React Developer, Tailwind CSS, India" />
+<meta name="author" content="Wrishikesh Chowdhury" />
+<meta property="og:title" content="Wrishikesh Chowdhury | Web Designer & CSE Engineer" />
+<meta property="og:description" content="Helping businesses grow with high-converting, modern, and SEO-optimized web solutions." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#030712" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23030712'/%3E%3Ctext x='50' y='68' font-size='52' font-family='monospace' font-weight='700' fill='%2338bdf8' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E" />
 
-  <!-- Structured Data / JSON-LD for Search Engines -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Rishikesh",
-    "jobTitle": "Web Designer & CSE Engineer",
-    "knowsAbout": ["Web Design", "React", "JavaScript", "Tailwind CSS", "Shopify", "UI/UX"],
-    "alumniOf": "B.Tech Computer Science & Engineering"
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Wrishikesh Chowdhury",
+  "jobTitle": "Web Designer & CSE Engineer",
+  "knowsAbout": ["Web Design", "React", "JavaScript", "Tailwind CSS", "Shopify", "UI/UX"],
+  "alumniOf": "B.Tech Computer Science & Engineering"
+}
+</script>
+
+<style>
+  /* ---------------------------------------------
+     DESIGN TOKENS
+  --------------------------------------------- */
+  :root{
+    --void:#030712;
+    --ink:#0a1120;
+    --ink-2:#0f1a2e;
+    --line:rgba(148,163,184,0.10);
+    --line-strong:rgba(148,163,184,0.18);
+    --text:#e7ecf5;
+    --text-muted:#93a1b8;
+    --text-faint:#5c6a85;
+    --cyan:#38bdf8;
+    --violet:#8b5cf6;
+    --emerald:#34d399;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+    --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    --radius-lg: 22px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
   }
-  </script>
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- React & React-DOM CDNs -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <!-- Babel Standalone CDN -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+  }
 
-  <style>
-    body {
-      background-color: #030712;
-      position: relative;
-      overflow-x: hidden;
-    }
+  body{
+    margin:0;
+    background:var(--void);
+    color:var(--text);
+    font-family:var(--font-sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+  }
 
-    /* Enhanced Graph Paper & Dynamic Glow Background */
-    .graph-paper-bg {
-      background-image: 
-        linear-gradient(to right, rgba(56, 189, 248, 0.07) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(56, 189, 248, 0.07) 1px, transparent 1px),
-        linear-gradient(to right, rgba(139, 92, 246, 0.12) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(139, 92, 246, 0.12) 1px, transparent 1px);
-      background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
-    }
+  /* Lightweight static backdrop — single fixed layer, no per-card blur cost */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    background-image:
+      linear-gradient(to right, rgba(56,189,248,0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(56,189,248,0.06) 1px, transparent 1px);
+    background-size:32px 32px;
+  }
+  body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    background:radial-gradient(circle at 50% 20%, rgba(56,189,248,0.10), rgba(139,92,246,0.06) 45%, transparent 75%);
+  }
 
-    .graph-paper-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      background: radial-gradient(circle at 50% 30%, rgba(14, 165, 233, 0.12), rgba(139, 92, 246, 0.08) 50%, transparent 80%);
-    }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  ::selection{ background:var(--cyan); color:#030712; }
 
-    /* Interactive Cursor Glow */
-    .glow-cursor {
-      position: fixed;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(139, 92, 246, 0.08) 40%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      z-index: 0;
-      transition: width 0.2s, height 0.2s;
-    }
+  :focus-visible{
+    outline:2px solid var(--cyan);
+    outline-offset:3px;
+    border-radius:6px;
+  }
 
-    /* Ultra Glassmorphism */
-    .ultra-glass {
-      background: rgba(15, 23, 42, 0.45) !important;
-      backdrop-filter: blur(20px) saturate(190%) !important;
-      -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
-      border: 1px solid rgba(255, 255, 255, 0.12) !important;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    }
+  .wrap{ max-width:1160px; margin:0 auto; padding:0 24px; }
 
-    .ultra-glass-card {
-      background: rgba(255, 255, 255, 0.03) !important;
-      backdrop-filter: blur(16px) saturate(180%) !important;
-      -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
-      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
+  /* Surfaces — ONE surface class carries the blur; used sparingly (nav + hero + form only) */
+  .glass{
+    background:rgba(15,23,42,0.55);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    border:1px solid var(--line-strong);
+  }
+  /* Cards use a solid tinted surface — no blur — this is the main perf fix vs the old design */
+  .card{
+    background:var(--ink);
+    border:1px solid var(--line);
+    border-radius:var(--radius-md);
+    transition:border-color .25s var(--ease), transform .25s var(--ease), box-shadow .25s var(--ease);
+  }
+  .card:hover{
+    border-color:rgba(56,189,248,0.45);
+    transform:translateY(-4px);
+    box-shadow:0 12px 28px -12px rgba(56,189,248,0.18);
+  }
 
-    .ultra-glass-card:hover {
-      background: rgba(255, 255, 255, 0.07) !important;
-      border-color: rgba(56, 189, 248, 0.6) !important;
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 15px 35px rgba(56, 189, 248, 0.2), 0 0 15px rgba(139, 92, 246, 0.2);
-    }
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    color:var(--cyan);
+    letter-spacing:.04em;
+  }
 
-    /* Button Shine Effect */
-    .btn-shine {
-      position: relative;
-      overflow: hidden;
-    }
+  h1,h2,h3{ font-family:var(--font-sans); font-weight:800; letter-spacing:-0.02em; margin:0; }
+  .section-head{ display:flex; align-items:center; gap:12px; margin-bottom:40px; }
+  .section-head h2{ font-size:clamp(28px,4vw,42px); }
 
-    .btn-shine::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transform: rotate(30deg) translateX(-100%);
-      transition: transform 0.6s ease;
-    }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    font-family:var(--font-mono); font-weight:700; font-size:14px;
+    padding:13px 26px; border-radius:12px;
+    cursor:pointer; border:1px solid transparent;
+    transition:transform .2s var(--ease), box-shadow .2s var(--ease), background-color .2s var(--ease), border-color .2s var(--ease);
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{ background:var(--cyan); color:#031018; box-shadow:0 10px 24px -10px rgba(56,189,248,0.45); }
+  .btn-primary:hover{ background:#5fcdfb; }
+  .btn-ghost{ background:rgba(255,255,255,0.04); border-color:var(--line-strong); color:var(--text); }
+  .btn-ghost:hover{ border-color:var(--cyan); background:rgba(56,189,248,0.06); }
+  .btn-block{ width:100%; }
 
-    .btn-shine:hover::after {
-      transform: rotate(30deg) translateX(100%);
-    }
+  .tag{
+    font-family:var(--font-mono); font-size:11px; padding:4px 10px; border-radius:7px;
+    border:1px solid var(--line-strong); color:var(--text-muted); background:rgba(255,255,255,0.03);
+  }
 
-    /* Grid Coordinates Nodes */
-    .grid-node {
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      background: #38bdf8;
-      border-radius: 50%;
-      opacity: 0.5;
-      pointer-events: none;
-      box-shadow: 0 0 8px #38bdf8;
-    }
+  /* ---------------- Scroll progress ---------------- */
+  #scroll-progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background:linear-gradient(to right,var(--cyan),var(--violet));
+    z-index:60; will-change:width;
+  }
 
-    /* Form Inputs */
-    input:focus, textarea:focus {
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
-    }
-  </style>
+  /* ---------------- Navbar ---------------- */
+  header.nav{
+    position:fixed; top:0; left:0; width:100%; z-index:50;
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; padding:14px 24px; }
+  .logo{ font-family:var(--font-mono); font-weight:800; color:var(--cyan); font-size:18px; display:flex; align-items:center; gap:6px; }
+  .logo .tick{ color:#fff; }
+  .logo .sub{ color:var(--violet); font-size:12px; font-weight:400; }
+
+  .nav-links{ display:none; gap:4px; font-family:var(--font-mono); font-size:13.5px; }
+  .nav-links a{
+    color:var(--text-muted); padding:8px 12px; border-radius:8px; position:relative;
+    transition:color .2s var(--ease), background-color .2s var(--ease);
+  }
+  .nav-links a:hover, .nav-links a.active{ color:var(--cyan); background:rgba(255,255,255,0.04); }
+
+  .nav-cta{ display:none; }
+  .nav-toggle{
+    display:inline-flex; background:rgba(255,255,255,0.04); border:1px solid var(--line-strong);
+    border-radius:10px; padding:9px; color:var(--text);
+  }
+  #mobile-menu{
+    display:none; flex-direction:column; gap:2px; padding:10px 24px 20px;
+    font-family:var(--font-mono); font-size:14px; border-top:1px solid var(--line);
+  }
+  #mobile-menu.open{ display:flex; }
+  #mobile-menu a{ color:var(--text-muted); padding:12px 6px; border-bottom:1px solid var(--line); }
+  #mobile-menu a:hover{ color:var(--cyan); }
+
+  @media (min-width:900px){
+    .nav-links{ display:flex; }
+    .nav-cta{ display:inline-flex; }
+    .nav-toggle{ display:none; }
+  }
+
+  /* ---------------- Hero ---------------- */
+  .hero{ min-height:100svh; display:flex; align-items:center; padding:120px 0 60px; }
+  .hero-card{ border-radius:28px; padding:44px 28px; position:relative; overflow:hidden; }
+  .hero-grid{ display:grid; grid-template-columns:1fr; gap:44px; align-items:center; }
+  @media (min-width:960px){
+    .hero-card{ padding:56px; }
+    .hero-grid{ grid-template-columns:1.35fr 1fr; }
+  }
+
+  .badge-live{
+    display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:12.5px;
+    color:var(--cyan); background:rgba(8,47,73,0.6); border:1px solid rgba(56,189,248,0.3);
+    padding:8px 16px; border-radius:99px; margin-bottom:22px;
+  }
+  .dot{ width:8px; height:8px; border-radius:99px; background:var(--cyan); animation:pulse 2s ease-in-out infinite; }
+  @keyframes pulse{ 0%,100%{opacity:1} 50%{opacity:.35} }
+
+  .hero h1{ font-size:clamp(34px,5.4vw,58px); line-height:1.08; margin-bottom:20px; }
+  .hero h1 .grad{
+    background:linear-gradient(90deg,var(--cyan),#7dd3fc,var(--violet));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p.lede{ color:var(--text-muted); font-size:17px; max-width:56ch; margin-bottom:24px; }
+  .hero p.lede strong{ color:var(--text); font-weight:600; }
+  .hero p.lede .accent{ color:#7dd3fc; }
+
+  .badges-row{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:26px; }
+  @media (min-width:520px){ .badges-row{ grid-template-columns:repeat(4,1fr); } }
+  .badges-row .item{
+    display:flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:12px;
+    padding:10px 12px; border-radius:11px; border:1px solid var(--line-strong); background:rgba(255,255,255,0.03);
+    color:var(--text-muted);
+  }
+
+  .cta-row{ display:flex; flex-wrap:wrap; gap:14px; }
+
+  /* Hero portrait */
+  .portrait-wrap{ display:flex; justify-content:center; }
+  .portrait{ position:relative; width:250px; height:250px; }
+  @media (min-width:640px){ .portrait{ width:300px; height:300px; } }
+  .ring{ position:absolute; inset:0; border-radius:99px; border:1.5px solid rgba(56,189,248,0.3); animation:spin 16s linear infinite; }
+  .ring.r2{ inset:-12px; border-color:rgba(139,92,246,0.28); animation-direction:reverse; animation-duration:24s; }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  .portrait-core{
+    position:absolute; inset:14px; border-radius:99px; background:var(--ink);
+    border:2px solid rgba(56,189,248,0.5); display:flex; align-items:center; justify-content:center;
+    box-shadow:0 20px 50px -20px rgba(0,0,0,0.6);
+  }
+  .portrait-core .avatar{
+    width:100%; height:100%; border-radius:99px; background:linear-gradient(160deg,#0f1a2e,#05070d);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:20px;
+    border:1px solid var(--line);
+  }
+  .avatar .mono{
+    width:64px; height:64px; border-radius:99px; background:linear-gradient(135deg,var(--cyan),var(--violet));
+    display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-weight:800;
+    color:#04101c; font-size:22px; margin-bottom:10px;
+  }
+  .avatar .name{ font-weight:700; font-size:17px; }
+  .avatar .role{ font-family:var(--font-mono); font-size:12px; color:var(--cyan); margin-top:3px; }
+  .avatar .sub{ font-family:var(--font-mono); font-size:10px; color:var(--text-faint); margin-top:3px; }
+
+  .float-badge{
+    position:absolute; bottom:4px; right:-6px; font-family:var(--font-mono); font-size:11px; color:#a7f3d0;
+    background:rgba(6,25,20,0.85); border:1px solid rgba(52,211,153,0.4); padding:7px 12px; border-radius:99px;
+    display:flex; align-items:center; gap:7px;
+  }
+  .float-badge .dot2{ width:7px; height:7px; border-radius:99px; background:var(--emerald); }
+
+  /* ---------------- Stats ---------------- */
+  .stats{ padding:44px 0; }
+  .stats-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+  @media (min-width:800px){ .stats-grid{ grid-template-columns:repeat(4,1fr); } }
+  .stat{ padding:26px 18px; text-align:center; }
+  .stat .val{ font-family:var(--font-mono); font-weight:800; font-size:32px; background:linear-gradient(90deg,var(--cyan),var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .stat .lbl{ font-weight:600; margin-top:4px; }
+  .stat .sub{ font-family:var(--font-mono); font-size:11.5px; color:var(--text-faint); margin-top:3px; }
+
+  section{ padding:74px 0; }
+
+  /* ---------------- About ---------------- */
+  .about-panel{ padding:36px 24px; }
+  @media (min-width:768px){ .about-panel{ padding:52px; } }
+  .about-grid{ display:grid; grid-template-columns:1fr; gap:36px; align-items:center; }
+  @media (min-width:960px){ .about-grid{ grid-template-columns:1.4fr 1fr; } }
+  .about-grid p{ color:var(--text-muted); margin:0 0 16px; }
+  .about-grid strong{ color:var(--text); }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+  .chip{ font-family:var(--font-mono); font-size:11.5px; padding:7px 12px; border-radius:9px; border:1px solid; }
+  .chip.c1{ color:#c4b5fd; border-color:rgba(139,92,246,0.35); background:rgba(139,92,246,0.06); }
+  .chip.c2{ color:#7dd3fc; border-color:rgba(56,189,248,0.35); background:rgba(56,189,248,0.06); }
+  .chip.c3{ color:#a7f3d0; border-color:rgba(52,211,153,0.35); background:rgba(52,211,153,0.06); }
+
+  .facts{ padding:22px; display:flex; flex-direction:column; gap:12px; font-family:var(--font-mono); font-size:12.5px; }
+  .facts .title{ color:var(--cyan); font-weight:700; border-bottom:1px solid var(--line); padding-bottom:10px; }
+  .facts .row{ display:flex; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:10px; gap:12px; }
+  .facts .row span:first-child{ color:var(--text-faint); }
+
+  /* ---------------- Skills ---------------- */
+  .skills-grid{ display:grid; grid-template-columns:1fr; gap:24px; }
+  @media (min-width:960px){ .skills-grid{ grid-template-columns:1.35fr 1fr; } }
+  .skill-panel{ padding:30px; }
+  @media (min-width:768px){ .skill-panel{ padding:36px; } }
+  .skill-row{ margin-bottom:18px; }
+  .skill-row:last-child{ margin-bottom:0; }
+  .skill-top{ display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:13.5px; margin-bottom:8px; }
+  .skill-top .pct{ color:var(--cyan); font-weight:700; }
+  .bar-track{ height:9px; border-radius:99px; background:#0e1626; border:1px solid var(--line); overflow:hidden; }
+  .bar-fill{ height:100%; border-radius:99px; background:linear-gradient(90deg,var(--cyan),#7dd3fc,var(--violet)); width:0%; transition:width 1s var(--ease); }
+
+  .cap-item{ display:flex; align-items:center; gap:10px; padding:11px 13px; border-radius:11px; font-family:var(--font-mono); font-size:12.5px; color:var(--text-muted); background:rgba(255,255,255,0.03); border:1px solid var(--line); margin-bottom:9px; }
+  .cap-item span.mark{ color:var(--cyan); font-weight:700; }
+  .edge-note{ margin-top:20px; padding:14px 16px; border-radius:12px; background:rgba(8,47,73,0.35); border:1px solid rgba(56,189,248,0.25); font-family:var(--font-mono); font-size:12px; color:#bae6fd; }
+
+  /* ---------------- Services ---------------- */
+  .services-grid{ display:grid; grid-template-columns:1fr; gap:22px; }
+  @media (min-width:720px){ .services-grid{ grid-template-columns:repeat(3,1fr); } }
+  .service-card{ padding:30px; display:flex; flex-direction:column; justify-content:space-between; }
+  .service-num{ width:44px; height:44px; border-radius:13px; background:linear-gradient(135deg,var(--cyan),var(--violet)); display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-weight:800; color:#04101c; margin-bottom:20px; }
+  .service-card h3{ font-size:19px; margin-bottom:10px; }
+  .service-card p{ color:var(--text-muted); font-size:14px; margin:0 0 20px; }
+  .service-tags{ display:flex; flex-wrap:wrap; gap:8px; padding-top:16px; border-top:1px solid var(--line); }
+
+  /* ---------------- Projects ---------------- */
+  .projects-grid{ display:grid; grid-template-columns:1fr; gap:26px; }
+  @media (min-width:720px){ .projects-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (min-width:1080px){ .projects-grid{ grid-template-columns:repeat(3,1fr); } }
+  .project-card{ padding:26px; display:flex; flex-direction:column; justify-content:space-between; }
+  .mock-screen{ border-radius:14px; background:#070c17; border:1px solid var(--line); margin-bottom:20px; padding:12px; }
+  .mock-bar{ display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); padding-bottom:8px; margin-bottom:10px; }
+  .mock-dots{ display:flex; gap:5px; }
+  .mock-dots span{ width:9px; height:9px; border-radius:99px; }
+  .mock-dots span:nth-child(1){ background:#f87171; }
+  .mock-dots span:nth-child(2){ background:#fbbf24; }
+  .mock-dots span:nth-child(3){ background:#34d399; }
+  .mock-url{ font-family:var(--font-mono); font-size:10px; color:var(--text-faint); }
+  .mock-body{ text-align:center; padding:16px 8px; }
+  .mock-body .t{ font-family:var(--font-mono); font-weight:700; color:var(--cyan); font-size:13px; }
+  .mock-body .c{ font-family:var(--font-mono); font-size:10.5px; color:var(--text-faint); margin-top:4px; }
+  .mock-perf{ display:inline-flex; margin-top:12px; font-family:var(--font-mono); font-size:10px; background:rgba(8,47,73,0.7); color:#7dd3fc; border:1px solid rgba(56,189,248,0.35); padding:5px 10px; border-radius:99px; }
+  .project-card h3{ font-size:21px; margin-bottom:8px; }
+  .project-card p.desc{ color:var(--text-muted); font-size:13.5px; margin:0 0 14px; }
+  .tech-row{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+  .tech-tag{ font-family:var(--font-mono); font-size:10px; padding:3px 9px; border-radius:7px; color:#c4b5fd; border:1px solid rgba(139,92,246,0.3); background:rgba(139,92,246,0.05); }
+  .meta-box{ font-family:var(--font-mono); font-size:12px; color:var(--text-faint); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:12px 0; margin:12px 0; }
+  .meta-box .review{ font-style:italic; color:var(--text-muted); margin-top:6px; }
+  .project-actions{ display:flex; gap:10px; }
+  .project-actions .btn{ flex:1; padding:11px 14px; font-size:12.5px; }
+
+  /* ---------------- Process ---------------- */
+  .process-grid{ display:grid; grid-template-columns:1fr; gap:18px; }
+  @media (min-width:640px){ .process-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (min-width:1080px){ .process-grid{ grid-template-columns:repeat(4,1fr); } }
+  .process-card{ padding:24px; }
+  .process-card .n{ font-family:var(--font-mono); font-weight:800; font-size:26px; color:var(--cyan); border-bottom:1px solid var(--line); padding-bottom:10px; margin-bottom:12px; }
+  .process-card h3{ font-size:16px; margin-bottom:8px; }
+  .process-card p{ color:var(--text-muted); font-size:13px; margin:0; }
+
+  /* ---------------- Testimonials ---------------- */
+  .testi-grid{ display:grid; grid-template-columns:1fr; gap:20px; }
+  @media (min-width:800px){ .testi-grid{ grid-template-columns:repeat(3,1fr); } }
+  .testi-card{ padding:26px; }
+  .testi-stars{ color:#fbbf24; font-size:14px; letter-spacing:2px; margin-bottom:12px; }
+  .testi-card p{ color:var(--text-muted); font-size:14px; font-style:italic; margin:0 0 18px; }
+  .testi-person{ display:flex; align-items:center; gap:10px; }
+  .testi-avatar{ width:38px; height:38px; border-radius:99px; background:linear-gradient(135deg,var(--cyan),var(--violet)); display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-weight:700; color:#04101c; font-size:13px; }
+  .testi-name{ font-weight:600; font-size:13.5px; }
+  .testi-role{ font-family:var(--font-mono); font-size:11px; color:var(--text-faint); }
+
+  /* ---------------- FAQ ---------------- */
+  .faq-list{ max-width:800px; margin:0 auto; display:flex; flex-direction:column; gap:12px; }
+  .faq-item{ border-radius:14px; overflow:hidden; }
+  .faq-q{
+    width:100%; text-align:left; background:transparent; border:none; color:var(--text);
+    font-family:var(--font-sans); font-weight:600; font-size:15px; padding:18px 20px;
+    display:flex; justify-content:space-between; align-items:center; cursor:pointer; gap:14px;
+  }
+  .faq-q .plus{ font-family:var(--font-mono); color:var(--cyan); font-size:18px; transition:transform .25s var(--ease); flex-shrink:0; }
+  .faq-item.open .plus{ transform:rotate(45deg); }
+  .faq-a{ max-height:0; overflow:hidden; transition:max-height .3s var(--ease); }
+  .faq-a p{ padding:0 20px 20px; color:var(--text-muted); font-size:14px; margin:0; }
+
+  /* ---------------- Contact ---------------- */
+  .contact-lede{ text-align:center; color:var(--text-muted); font-family:var(--font-mono); font-size:13.5px; max-width:560px; margin:0 auto 34px; }
+  .direct-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:36px; font-family:var(--font-mono); font-size:12px; }
+  @media (min-width:640px){ .direct-grid{ grid-template-columns:repeat(4,1fr); } }
+  .direct-item{ padding:14px 10px; border-radius:13px; text-align:center; color:var(--text-muted); }
+  .direct-item .lbl{ display:block; margin-bottom:4px; }
+  .direct-item .val{ font-size:10px; color:var(--text-faint); word-break:break-word; }
+  .direct-item.wa{ color:#6ee7b7; }
+  .direct-item.wa .val{ color:#6ee7b7; }
+
+  form.contact-form{ padding:32px 22px; }
+  @media (min-width:768px){ form.contact-form{ padding:48px; } }
+  .form-grid{ display:grid; grid-template-columns:1fr; gap:22px; margin-bottom:20px; }
+  @media (min-width:640px){ .form-grid{ grid-template-columns:1fr 1fr; } }
+  label{ display:block; font-family:var(--font-mono); font-size:12px; color:var(--text-muted); margin-bottom:8px; }
+  input, textarea{
+    width:100%; background:rgba(255,255,255,0.04); border:1px solid var(--line-strong); border-radius:12px;
+    padding:13px 15px; color:var(--text); font-family:var(--font-mono); font-size:13.5px;
+  }
+  input::placeholder, textarea::placeholder{ color:var(--text-faint); }
+  input:focus, textarea:focus{ outline:none; border-color:var(--cyan); background:rgba(255,255,255,0.06); box-shadow:0 0 0 4px rgba(56,189,248,0.12); }
+  textarea{ margin-bottom:20px; resize:vertical; min-height:120px; }
+  .form-status{ text-align:center; font-family:var(--font-mono); font-size:12.5px; color:var(--cyan); margin-top:14px; min-height:16px; }
+  .form-error{ color:#fca5a5 !important; }
+
+  /* ---------------- Footer / back to top ---------------- */
+  footer{ padding:32px 0; border-top:1px solid var(--line); text-align:center; color:var(--text-faint); font-family:var(--font-mono); font-size:12px; }
+  footer .l1{ margin-bottom:6px; }
+
+  #back-to-top{
+    position:fixed; right:20px; bottom:20px; width:44px; height:44px; border-radius:99px;
+    background:var(--cyan); color:#04101c; border:none; display:flex; align-items:center; justify-content:center;
+    cursor:pointer; opacity:0; pointer-events:none; transform:translateY(10px);
+    transition:opacity .25s var(--ease), transform .25s var(--ease); z-index:45;
+    box-shadow:0 10px 24px -8px rgba(56,189,248,0.5);
+  }
+  #back-to-top.show{ opacity:1; pointer-events:auto; transform:translateY(0); }
+
+  /* Cursor glow — desktop with fine pointer only; positioned via transform (GPU) not top/left */
+  #cursor-glow{
+    position:fixed; top:0; left:0; width:420px; height:420px; border-radius:99px; pointer-events:none; z-index:0;
+    background:radial-gradient(circle, rgba(56,189,248,0.12) 0%, rgba(139,92,246,0.06) 40%, transparent 70%);
+    transform:translate(-9999px,-9999px);
+    will-change:transform;
+  }
+</style>
 </head>
-<body class="font-sans text-slate-100 antialiased selection:bg-cyan-500 selection:text-black graph-paper-bg">
-  
-  <div class="graph-paper-overlay"></div>
-  <div id="cursor-glow" class="glow-cursor"></div>
-  <div id="root"></div>
+<body>
 
-  <script type="text/babel">
-    const { useState, useEffect } = React;
+  <div id="scroll-progress"></div>
+  <div id="cursor-glow" aria-hidden="true"></div>
 
-    // --- SCROLL PROGRESS BAR ---
-    function ScrollProgress() {
-      const [scrollProgress, setScrollProgress] = useState(0);
+  <header class="nav glass">
+    <div class="wrap nav-inner">
+      <a href="#hero" class="logo"><span class="tick">&lt;</span>Wrishikesh<span class="sub">.design</span><span class="tick">/&gt;</span></a>
 
-      useEffect(() => {
-        const handleScroll = () => {
-          const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-          const currentProgress = (window.scrollY / totalHeight) * 100;
-          setScrollProgress(currentProgress);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-      }, []);
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-      return (
-        <div 
-          className="fixed top-0 left-0 h-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-indigo-500 z-50 transition-all duration-150"
-          style={{ width: `${scrollProgress}%` }}
-        ></div>
-      );
-    }
+      <a href="#contact" class="btn btn-primary nav-cta">Hire_Me()</a>
 
-    // --- NAVBAR ---
-    function Navbar() {
-      const [isOpen, setIsOpen] = useState(false);
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path id="nav-icon" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <nav id="mobile-menu" aria-label="Mobile">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#process">Process</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-      return (
-        <nav className="fixed top-0 left-0 w-full ultra-glass border-b border-white/10 z-40">
-          <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative">
-            <a href="#hero" className="text-xl font-mono font-bold tracking-tight text-cyan-400 flex items-center gap-2 group">
-              <span className="text-white group-hover:-translate-x-1 transition-transform">&lt;</span>
-              Wrishikesh
-              <span className="text-xs text-purple-400 font-normal">.design</span>
-              <span className="text-white group-hover:translate-x-1 transition-transform">/&gt;</span>
-            </a>
+  <main>
 
-            <div className="hidden md:flex space-x-6 font-mono text-sm text-slate-300">
-              {["About", "Skills", "Services", "Projects", "Process", "Contact"].map(item => (
-                <a 
-                  key={item} 
-                  href={`#${item.toLowerCase()}`} 
-                  className="relative hover:text-cyan-400 transition-colors duration-200 px-3 py-1.5 rounded-lg hover:bg-white/5 group"
-                >
-                  {item}
-                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 transition-all duration-300 group-hover:w-4/5 group-hover:left-[10%]"></span>
-                </a>
-              ))}
-            </div>
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="wrap">
+        <div class="hero-card glass">
+          <div class="hero-grid">
+            <div>
+              <div class="badge-live"><span class="dot"></span>AVAILABLE FOR NEW FREELANCE & CONTRACT PROJECTS</div>
+              <h1>Helping businesses grow with <span class="grad">premium websites</span></h1>
+              <p class="lede">Hi, I'm <strong>Wrishikesh Chowdhury</strong>, a web designer with a <span class="accent">B.Tech in Computer Science & Engineering</span>. I turn business goals into fast, responsive, high-converting digital experiences.</p>
 
-            <div className="hidden md:flex items-center gap-3">
-              <a 
-                href="#contact" 
-                className="btn-shine bg-cyan-500 hover:bg-cyan-400 text-black font-mono font-bold text-xs px-4 py-2 rounded-lg transition shadow-lg shadow-cyan-500/20"
-              >
-                Hire_Me()
-              </a>
-            </div>
-
-            <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-slate-300 focus:outline-none p-2 rounded-lg ultra-glass-card">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {isOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
-
-          {isOpen && (
-            <div className="md:hidden ultra-glass border-t border-white/10 px-6 py-4 flex flex-col space-y-4 font-mono text-sm">
-              {["About", "Skills", "Services", "Projects", "Process", "Contact"].map(item => (
-                <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsOpen(false)} className="text-slate-200 hover:text-cyan-400">
-                  {item}
-                </a>
-              ))}
-            </div>
-          )}
-        </nav>
-      );
-    }
-
-    // --- HERO SECTION ---
-    function Hero() {
-      const trustBadges = [
-        { icon: "🚀", label: "40+ Projects Built" },
-        { icon: "⚡", label: "Fast Turnaround" },
-        { icon: "🔍", label: "SEO Optimized" },
-        { icon: "📱", label: "Mobile-First Design" }
-      ];
-
-      return (
-        <section id="hero" className="min-h-screen pt-32 pb-16 flex items-center justify-center text-white px-6 relative">
-          <div className="grid-node" style={{ top: '120px', left: '80px' }}></div>
-          <div className="grid-node" style={{ top: '120px', right: '80px' }}></div>
-          <div className="grid-node" style={{ bottom: '80px', left: '80px' }}></div>
-          <div className="grid-node" style={{ bottom: '80px', right: '80px' }}></div>
-
-          <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center ultra-glass p-8 md:p-14 rounded-3xl relative overflow-hidden my-6 border border-white/10 hover:border-cyan-400/30 transition duration-500">
-            
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 font-mono text-xs md:text-sm text-cyan-400 bg-cyan-950/50 border border-cyan-500/30 px-4 py-2 rounded-full">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-                AVAILABLE FOR NEW FREELANCE & CONTRACT PROJECTS
+              <div class="badges-row">
+                <div class="item">🚀 40+ Projects Built</div>
+                <div class="item">⚡ Fast Turnaround</div>
+                <div class="item">🔍 SEO Optimized</div>
+                <div class="item">📱 Mobile-First Design</div>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-                Helping Businesses Grow with{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-purple-400">
-                  Premium Websites
-                </span>
-              </h1>
-
-              <p className="text-slate-300 text-base md:text-lg leading-relaxed font-light">
-                Hi, I'm <strong className="text-white font-medium">Wrishikesh Chowdhury</strong>, a Web Designer with a <strong class="text-cyan-300 font-medium">B.Tech in Computer Science & Engineering</strong>. I turn business goals into fast, responsive, high-converting digital experiences.
-              </p>
-
-              {/* Trust Badges */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-2 font-mono text-xs">
-                {trustBadges.map((badge, idx) => (
-                  <div key={idx} className="ultra-glass-card px-3 py-2 rounded-xl flex items-center gap-2 border border-white/5 text-slate-300">
-                    <span>{badge.icon}</span>
-                    <span>{badge.label}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-2 font-mono text-sm">
-                <a href="#projects" className="btn-shine bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-7 py-3.5 rounded-xl transition-all duration-300 text-center shadow-lg shadow-cyan-500/20 hover:scale-105">
-                  View_Client_Work.sh
-                </a>
-                <a href="#contact" className="ultra-glass-card hover:bg-white/10 text-slate-200 font-medium px-7 py-3.5 rounded-xl transition-all duration-300 text-center border border-white/10 hover:border-cyan-400">
-                  Start_A_Project()
-                </a>
+              <div class="cta-row">
+                <a href="#projects" class="btn btn-primary">View_Client_Work.sh</a>
+                <a href="#contact" class="btn btn-ghost">Start_A_Project()</a>
               </div>
             </div>
 
-            {/* Right Profile Frame */}
-            <div className="lg:col-span-5 flex justify-center relative">
-              <div className="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
-                
-                {/* Glowing Rings */}
-                <div className="absolute inset-0 rounded-full border-2 border-cyan-500/30 animate-spin" style={{ animationDuration: '15s' }}></div>
-                <div className="absolute -inset-3 rounded-full border border-purple-500/30 animate-spin" style={{ animationDuration: '25s', animationDirection: 'reverse' }}></div>
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-500/20 to-purple-600/20 blur-2xl"></div>
-
-                {/* Profile Card Container */}
-                <div className="relative z-10 w-56 h-56 md:w-72 md:h-72 rounded-full ultra-glass border-2 border-cyan-400/50 p-2 overflow-hidden shadow-2xl flex items-center justify-center bg-slate-900/80">
-                  <div className="w-full h-full rounded-full bg-gradient-to-br from-slate-800 to-slate-950 flex flex-col items-center justify-center p-6 text-center border border-white/10">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-cyan-400 to-purple-600 flex items-center justify-center text-3xl font-bold font-mono text-black shadow-lg mb-3">
-                      WK
-                    </div>
-                    <span className="font-bold text-lg text-white">Wrishikesh</span>
-                    <span className="text-xs font-mono text-cyan-400 mt-1">Web Designer & CSE</span>
-                    <span className="text-[10px] font-mono text-slate-400 mt-1">Full-Stack Business Solutions</span>
+            <div class="portrait-wrap">
+              <div class="portrait">
+                <div class="ring"></div>
+                <div class="ring r2"></div>
+                <div class="portrait-core">
+                  <div class="avatar">
+                    <div class="mono">WK</div>
+                    <div class="name">Wrishikesh</div>
+                    <div class="role">Web Designer & CSE</div>
+                    <div class="sub">Full-Stack Business Solutions</div>
                   </div>
                 </div>
-
-                {/* Floating Micro-Badge */}
-                <div className="absolute bottom-2 -right-2 ultra-glass-card px-3 py-1.5 rounded-full text-xs font-mono text-cyan-300 flex items-center gap-2 z-20 border border-cyan-500/40">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                  B.Tech CSE Graduate
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-      );
-    }
-
-    // --- STATISTICS SECTION ---
-    function Statistics() {
-      const stats = [
-        { value: "40+", label: "Completed Projects", sub: "E-Commerce & Landing Pages" },
-        { value: "25+", label: "Happy Business Clients", sub: "Worldwide & Local Businesses" },
-        { value: "99%", label: "Client Satisfaction", sub: "On-Time Delivery & Support" },
-        { value: "4+", label: "Years Tech Expertise", sub: "Computer Science & Design" }
-      ];
-
-      return (
-        <section className="py-12 px-6 relative">
-          <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {stats.map((s, idx) => (
-              <div key={idx} className="ultra-glass-card p-6 rounded-2xl text-center relative overflow-hidden group">
-                <div className="text-3xl md:text-4xl font-extrabold font-mono text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 mb-2 group-hover:scale-110 transition-transform">
-                  {s.value}
-                </div>
-                <div className="text-sm font-semibold text-white tracking-wide">{s.label}</div>
-                <div className="text-xs font-mono text-slate-400 mt-1">{s.sub}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-      );
-    }
-
-    // --- ABOUT SECTION ---
-    function About() {
-      return (
-        <section id="about" className="py-20 text-white px-6 relative">
-          <div className="max-w-6xl mx-auto ultra-glass p-8 md:p-12 rounded-3xl">
-            <div className="fl ex items-center gap-3 mb-8">
-              <span className="font-mono text-cyan-400 text-sm">[ SECTION_01 ]</span>
-              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">About Me</h2>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-7 space-y-4 text-slate-300 text-base leading-relaxed">
-                <p>
-                  I am a passionate <strong className="text-white">Web Designer & Frontend Engineer</strong> holding a Bachelor of Technology in Computer Science & Engineering. I bridge the gap between engineering rigor and commercial aesthetic design.
-                </p>
-                <p>
-                  My goal isn't just to build beautiful pages—it's to deliver <strong className="text-cyan-300">high-converting online storefronts and corporate websites</strong> that load quickly, rank high on search engines, and convert visitors into loyal clients.
-                </p>
-                <p>
-                  I also operate my own active online storefront, giving me first-hand real-world experience in digital commerce, customer funnel optimization, and conversion-focused web layouts.
-                </p>
-
-                <div className="pt-4 flex flex-wrap gap-3 font-mono text-xs">
-                  <span className="ultra-glass-card px-3 py-1.5 rounded-lg text-purple-300 border border-purple-500/30">✓ B.Tech CSE Degree</span>
-                  <span className="ultra-glass-card px-3 py-1.5 rounded-lg text-cyan-300 border border-cyan-500/30">✓ E-Commerce Specialist</span>
-                  <span className="ultra-glass-card px-3 py-1.5 rounded-lg text-emerald-300 border border-emerald-500/30">✓ Clean & Modern Code</span>
-                </div>
-              </div>
-
-              <div className="lg:col-span-5 ultra-glass-card p-6 rounded-2xl space-y-4 font-mono text-xs">
-                <div className="text-cyan-400 font-bold text-sm border-b border-white/10 pb-2">// QUICK_FACTS</div>
-                <div className="flex justify-between border-b border-white/5 pb-2">
-                  <span className="text-slate-400">Degree:</span>
-                  <span className="text-white">B.Tech CSE</span>
-                </div>
-                <div className="flex justify-between border-b border-white/5 pb-2">
-                  <span className="text-slate-400">Specialization:</span>
-                  <span className="text-cyan-300">Web Design & Business Sites</span>
-                </div>
-                <div className="flex justify-between border-b border-white/5 pb-2">
-                  <span className="text-slate-400">Core Stack:</span>
-                  <span className="text-purple-300">React, Tailwind, JS, Shopify</span>
-                </div>
-                <div className="flex justify-between border-b border-white/5 pb-2">
-                  <span className="text-slate-400">Availability:</span>
-                  <span className="text-emerald-400">Open for Client Work</span>
-                </div>
-                <div className="pt-2">
-                  <a 
-                    href="#contact" 
-                    className="block text-center bg-white/10 hover:bg-cyan-500 hover:text-black text-white font-bold py-2.5 rounded-xl transition"
-                  >
-                    Download_CV.pdf
-                  </a>
-                </div>
+                <div class="float-badge"><span class="dot2"></span>B.Tech CSE Graduate</div>
               </div>
             </div>
           </div>
-        </section>
-      );
-    }
-
-    // --- SKILLS SECTION WITH PROGRESS BARS ---
-    function Skills() {
-      const technicalSkills = [
-        { name: "React.js & Next.js", level: 92 },
-        { name: "JavaScript (ES6+) & Web APIs", level: 90 },
-        { name: "Tailwind CSS & Responsive UI", level: 95 },
-        { name: "HTML5 / CSS3 / Animations", level: 98 },
-        { name: "Shopify & E-Commerce Web Design", level: 88 },
-        { name: "UI/UX & Figma-to-Code Conversion", level: 85 }
-      ];
-
-      const businessCapabilities = [
-        "Conversion Rate Optimization (CRO)",
-        "Mobile-First Responsive Layouts",
-        "Page Speed & Performance Tuning",
-        "On-Page SEO Best Practices",
-        "E-Commerce Store Setup & Launch",
-        "Domain & Server Hosting Setup"
-      ];
-
-      return (
-        <section id="skills" className="py-20 text-white px-6 relative">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 justify-center mb-16">
-              <span className="font-mono text-cyan-400 text-sm">[ SECTION_02 ]</span>
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">Skills & Technical Expertise</h2>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-              
-              {/* Technical Progress Bars */}
-              <div className="lg:col-span-7 ultra-glass p-8 rounded-3xl space-y-6">
-                <h3 className="text-xl font-bold font-mono text-cyan-300 mb-6 flex items-center gap-2">
-                  <span>⚡</span> Technical Competencies
-                </h3>
-
-                {technicalSkills.map((s, idx) => (
-                  <div key={idx} className="space-y-2">
-                    <div className="flex justify-between text-sm font-mono">
-                      <span className="text-slate-200">{s.name}</span>
-                      <span className="text-cyan-400 font-bold">{s.level}%</span>
-                    </div>
-                    <div className="w-full h-3 bg-slate-900 rounded-full overflow-hidden border border-white/10 p-0.5">
-                      <div 
-                        className="h-full bg-gradient-to-r from-cyan-400 via-sky-400 to-purple-500 rounded-full transition-all duration-1000"
-                        style={{ width: `${s.level}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Business Value Capabilities */}
-              <div className="lg:col-span-5 ultra-glass p-8 rounded-3xl flex flex-col justify-between">
-                <div>
-                  <h3 className="text-xl font-bold font-mono text-purple-300 mb-6 flex items-center gap-2">
-                    <span>💼</span> Business Value Capabilities
-                  </h3>
-                  <div className="space-y-3 font-mono text-xs">
-                    {businessCapabilities.map((cap, idx) => (
-                      <div key={idx} className="ultra-glass-card p-3 rounded-xl flex items-center gap-3 text-slate-300">
-                        <span className="text-cyan-400 font-bold">&gt;</span>
-                        <span>{cap}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-8 p-4 rounded-xl bg-cyan-950/30 border border-cyan-500/30 font-mono text-xs text-cyan-200">
-                  💡 <strong>Engineering Edge:</strong> Combining Computer Science principles with high-end aesthetic UI to build scalable web products.
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    // --- SERVICES SECTION ---
-    function Services() {
-      const serviceList = [
-        {
-          title: "Custom E-Commerce Storefronts",
-          desc: "Full online store setup tailored for high conversion, responsive checkout, catalog organization, and smooth customer experience.",
-          tags: ["Shopify", "Tailwind", "Cart Optimization"]
-        },
-        {
-          title: "Business & Corporate Websites",
-          desc: "Sleek multi-page and single-page websites that showcase your business services, build brand authority, and turn visitors into leads.",
-          tags: ["Brand UI", "Lead Gen", "Fast Loading"]
-        },
-        {
-          title: "High-Converting Landing Pages",
-          desc: "Laser-focused landing pages engineered for marketing campaigns, direct response ads, and product launches.",
-          tags: ["CRO", "A/B Ready", "Mobile First"]
-        }
-      ];
-
-      return (
-        <section id="services" className="py-20 text-white px-6 relative">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 justify-center mb-16">
-              <span className="font-mono text-cyan-400 text-sm">[ SECTION_03 ]</span>
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">Services Offered</h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {serviceList.map((srv, idx) => (
-                <div key={idx} className="ultra-glass-card p-8 rounded-3xl flex flex-col justify-between group">
-                  <div>
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-400 to-purple-600 flex items-center justify-center font-mono font-bold text-black text-xl mb-6 shadow-lg">
-                      0{idx + 1}
-                    </div>
-                    <h3 className="text-xl font-bold text-slate-100 mb-3 group-hover:text-cyan-300 transition-colors">{srv.title}</h3>
-                    <p className="text-slate-300 text-sm leading-relaxed mb-6 font-light">{srv.desc}</p>
-                  </div>
-
-                  <div>
-                    <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
-                      {srv.tags.map((t, tIdx) => (
-                        <span key={tIdx} className="text-[10px] font-mono bg-cyan-950/60 text-cyan-300 border border-cyan-800/50 px-2 py-1 rounded-md">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    // --- PROJECTS SECTION WITH RICH UI ---
-    function Projects() {
-      const projects = [
-        {
-          title: "GrabNGoz E-Commerce Platform",
-          category: "E-Commerce / Custom Storefront",
-          description: "Full e-commerce platform built for high product conversion, quick add-to-cart workflows, and mobile-first shopping experiences.",
-          tech: ["React.js", "Tailwind CSS", "Shopify CMS", "Netlify"],
-          duration: "2 Weeks",
-          review: "“Rishikesh built a lightning-fast web store that significantly elevated our brand's online look.”",
-          demoLink: "https://example.com",
-          githubLink: "https://github.com/rishikesh"
-        },
-        {
-          title: "Corporate Agency Landing Portal",
-          category: "Business Website & SEO",
-          description: "A high-impact landing page designed to capture business inquiries, showcase client services, and achieve top performance scores.",
-          tech: ["Next.js", "Tailwind CSS", "Framer Motion", "SEO Core"],
-          duration: "1 Week",
-          review: "“Our client inbound inquiries increased by 40% after launching our new design.”",
-          demoLink: "https://example.com",
-          githubLink: "https://github.com/rishikesh"
-        },
-        {
-          title: "Smart Business Management Portal",
-          category: "Web Application UI",
-          description: "Custom web interface built for internal team management, client communications, and real-time business metrics tracking.",
-          tech: ["React.js", "JavaScript ES6+", "REST APIs", "Node.js"],
-          duration: "3 Weeks",
-          review: "“Clean, intuitive, and modern UI. Handled complex dashboard views effortlessly.”",
-          demoLink: "https://example.com",
-          githubLink: "https://github.com/rishikesh"
-        }
-      ];
-
-      return (
-        <section id="projects" className="py-20 text-white px-6 relative">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 justify-center mb-16">
-              <span className="font-mono text-cyan-400 text-sm">[ SECTION_04 ]</span>
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">Client Work & Portfolio</h2>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {projects.map((p, idx) => (
-                <div key={idx} className="ultra-glass-card p-8 rounded-3xl flex flex-col justify-between group relative overflow-hidden">
-                  
-                  {/* Mock Desktop Screen Visual Header */}
-                  <div>
-                    <div className="w-full h-44 rounded-2xl bg-slate-900 border border-white/10 mb-6 p-3 flex flex-col justify-between relative overflow-hidden group-hover:border-cyan-400/50 transition">
-                      
-                      {/* Browser Bar Mock */}
-                      <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                        <div className="flex gap-1.5">
-                          <span className="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
-                          <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
-                          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                        </div>
-                        <span className="text-[10px] font-mono text-slate-500">https://client-preview-{idx+1}.dev</span>
-                      </div>
-
-                      {/* Mock Page Canvas Visual */}
-                      <div className="flex-1 flex flex-col justify-center items-center p-2 text-center">
-                        <span className="text-xs font-mono font-bold text-cyan-400">{p.title}</span>
-                        <span className="text-[10px] text-slate-400 font-mono mt-1">{p.category}</span>
-                        <div className="mt-3 inline-flex items-center gap-1 text-[10px] font-mono bg-cyan-950/80 text-cyan-300 border border-cyan-800/60 px-2.5 py-1 rounded-full">
-                          ⚡ 100% Mobile & Speed Score
-                        </div>
-                      </div>
-                    </div>
-
-                    <h3 className="text-2xl font-bold text-slate-100 mb-2 group-hover:text-cyan-300 transition-colors">{p.title}</h3>
-                    <p className="text-slate-300 text-sm leading-relaxed mb-4 font-light">{p.description}</p>
-                    
-                    {/* Tech Badges */}
-                    <div className="flex flex-wrap gap-1.5 mb-4">
-                      {p.tech.map((t, tIdx) => (
-                        <span key={tIdx} className="text-[10px] font-mono bg-white/5 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded-md">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Duration & Client Review */}
-                    <div className="text-xs font-mono text-slate-400 border-t border-b border-white/10 py-3 my-4 space-y-1">
-                      <div><strong className="text-slate-200">Timeline:</strong> {p.duration}</div>
-                      <div className="italic text-slate-300">{p.review}</div>
-                    </div>
-                  </div>
-
-                  {/* Buttons */}
-                  <div className="flex items-center gap-3 pt-2 font-mono text-xs">
-                    <a 
-                      href={p.demoLink} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="btn-shine flex-1 text-center bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-2.5 rounded-xl transition"
-                    >
-                      Live_Demo ↗
-                    </a>
-                    <a 
-                      href={p.githubLink} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="flex-1 text-center ultra-glass-card hover:bg-white/10 text-slate-200 font-bold py-2.5 rounded-xl transition border border-white/10"
-                    >
-                      GitHub 💻
-                    </a>
-                  </div>
-
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    // --- WORK PROCESS SECTION ---
-    function Process() {
-      const steps = [
-        { num: "01", title: "Discovery & Strategy", desc: "Understanding your business goals, brand identity, target audience, and website functional requirements." },
-        { num: "02", title: "UI/UX Design", desc: "Crafting wireframes and responsive modern layouts focused on conversion rate optimization." },
-        { num: "03", title: "Development & Engineering", desc: "Building clean, optimized code using React, Tailwind CSS, and lightweight scripts for high speed." },
-        { num: "04", title: "Testing & Launch", desc: "Cross-browser testing, mobile responsiveness checks, SEO optimization, and final deployment." }
-      ];
-
-      return (
-        <section id="process" className="py-20 text-white px-6 relative">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 justify-center mb-16">
-              <span className="font-mono text-cyan-400 text-sm">[ SECTION_05 ]</span>
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">Development Process</h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {steps.map((step, idx) => (
-                <div key={idx} className="ultra-glass-card p-6 rounded-2xl relative space-y-4">
-                  <div className="text-3xl font-mono font-bold text-cyan-400 border-b border-white/10 pb-2">
-                    {step.num}.
-                  </div>
-                  <h3 className="text-lg font-bold text-white">{step.title}</h3>
-                  <p className="text-slate-300 text-xs leading-relaxed font-light">{step.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    // --- CONTACT SECTION WITH FORMSPREE INTEGRATION & DIRECT CONTACTS ---
-    function Contact() {
-      const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-      const [status, setStatus] = useState('');
-
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        setStatus('Submitting inquiry...');
-        
-        // Simulating submission or handling Formspree POST
-        setTimeout(() => {
-          setStatus('Message delivered! Rishikesh will contact your business shortly.');
-          setFormData({ name: '', email: '', message: '' });
-        }, 1200);
-      };
-
-      return (
-        <section id="contact" className="py-20 text-white px-6 relative">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-3 justify-center mb-4">
-              <span className="font-mono text-cyan-400 text-sm">[ SECTION_06 ]</span>
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">Let's Build Your Business Website</h2>
-            </div>
-            <p className="text-slate-400 text-center mb-8 font-mono text-sm max-w-xl mx-auto">
-              Ready to elevate your online business presence? Send a project inquiry or connect directly via social profiles below.
-            </p>
-
-            {/* Direct Contact Links */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10 font-mono text-xs">
-              <a 
-                href="mailto:rishikesh.dev.contact@gmail.com" 
-                className="ultra-glass-card p-3 rounded-xl text-slate-300 hover:text-cyan-400 flex flex-col items-center justify-center text-center gap-1 border border-white/10"
-              >
-                <span>✉ Email Me</span>
-                <span className="text-[10px] text-slate-400 truncate w-full">wrishikeshchowdhury@gmail.com</span>
-              </a>
-              <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="ultra-glass-card p-3 rounded-xl text-slate-300 hover:text-cyan-400 flex flex-col items-center justify-center text-center gap-1 border border-white/10"
-              >
-                <span>💻 GitHub</span>
-                <span className="text-[10px] text-slate-400">/rishikesh-dev</span>
-              </a>
-              <a 
-                href="www.linkedin.com/in/wrishikesh-chowdhury-103000260" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="ultra-glass-card p-3 rounded-xl text-slate-300 hover:text-cyan-400 flex flex-col items-center justify-center text-center gap-1 border border-white/10"
-              >
-                <span>🔗 LinkedIn</span>
-                <span className="text-[10px] text-slate-400">www.linkedin.com/in/wrishikesh-chowdhury-103000260</span>
-              </a>
-              <a 
-                href="https://wa.me/7602921338" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="ultra-glass-card p-3 rounded-xl text-emerald-400 hover:text-emerald-300 flex flex-col items-center justify-center text-center gap-1 border border-emerald-500/30"
-              >
-                <span>💬 WhatsApp</span>
-                <span className="text-[10px] text-emerald-300">Quick Chat</span>
-              </a>
-            </div>
-
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-6 ultra-glass p-8 md:p-12 rounded-3xl border border-white/10 hover:border-cyan-400/40 transition duration-500">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-2">// Name or Company Name</label>
-                  <input 
-                    type="text" 
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:bg-white/10 transition font-mono text-sm"
-                    placeholder="John Doe / Acme Corp"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-2">// Email Address</label>
-                  <input 
-                    type="email" 
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:bg-white/10 transition font-mono text-sm"
-                    placeholder="john@company.com"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-mono text-slate-300 mb-2">// Project Requirements & Goals</label>
-                <textarea 
-                  rows="4" 
-                  required
-                  value={formData.message}
-                  onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:bg-white/10 transition font-mono text-sm"
-                  placeholder="Tell me about your business, website goals, and preferred timeline..."
-                ></textarea>
-              </div>
-
-              <button 
-                type="submit" 
-                className="btn-shine w-full bg-cyan-500 hover:bg-cyan-400 text-black font-mono font-bold py-3.5 rounded-xl transition shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/40"
-              >
-                Send_Inquiry()
-              </button>
-
-              {status && <p className="text-center text-xs font-mono text-cyan-400 mt-2">{status}</p>}
-            </form>
-          </div>
-        </section>
-      );
-    }
-
-    // --- MAIN APP ASSEMBLY ---
-    function App() {
-      useEffect(() => {
-        const handleMouseMove = (e) => {
-          const glow = document.getElementById("cursor-glow");
-          if (glow) {
-            glow.style.left = `${e.clientX}px`;
-            glow.style.top = `${e.clientY}px`;
-          }
-        };
-        window.addEventListener("mousemove", handleMouseMove);
-        return () => window.removeEventListener("mousemove", handleMouseMove);
-      }, []);
-
-      return (
-        <div className="min-h-screen">
-          <ScrollProgress />
-          <Navbar />
-          <main>
-            <Hero />
-            <Statistics />
-            <About />
-            <Skills />
-            <Services />
-            <Projects />
-            <Process />
-            <Contact />
-          </main>
-          
-          <footer className="py-8 ultra-glass border-t border-white/10 text-center text-slate-400 text-xs font-mono space-y-2">
-            <div>© {new Date().getFullYear()} Rishikesh | Web Designer & B.Tech CSE Engineer. All rights reserved.</div>
-            <div className="text-slate-500">Built with React, Tailwind CSS, and Custom Glassmorphism.</div>
-          </footer>
         </div>
-      );
-    }
+      </div>
+    </section>
 
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
-  </script>
+    <!-- STATS -->
+    <section class="stats">
+      <div class="wrap stats-grid">
+        <div class="stat card"><div class="val">40+</div><div class="lbl">Completed Projects</div><div class="sub">E-Commerce & Landing Pages</div></div>
+        <div class="stat card"><div class="val">25+</div><div class="lbl">Happy Business Clients</div><div class="sub">Worldwide & Local Businesses</div></div>
+        <div class="stat card"><div class="val">99%</div><div class="lbl">Client Satisfaction</div><div class="sub">On-Time Delivery & Support</div></div>
+        <div class="stat card"><div class="val">4+</div><div class="lbl">Years Tech Expertise</div><div class="sub">Computer Science & Design</div></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap about-panel glass" style="border-radius:28px;">
+        <div class="section-head"><span class="eyebrow">[ SECTION_01 ]</span><h2>About Me</h2></div>
+        <div class="about-grid">
+          <div>
+            <p>I am a passionate <strong>Web Designer & Frontend Engineer</strong> holding a Bachelor of Technology in Computer Science & Engineering. I bridge the gap between engineering rigor and commercial aesthetic design.</p>
+            <p>My goal isn't just to build beautiful pages — it's to deliver <strong>high-converting online storefronts and corporate websites</strong> that load quickly, rank well on search engines, and convert visitors into loyal clients.</p>
+            <p>I also run my own active online storefront, which gives me first-hand experience in digital commerce, customer funnel optimization, and conversion-focused layouts.</p>
+            <div class="chip-row">
+              <span class="chip c1">✓ B.Tech CSE Degree</span>
+              <span class="chip c2">✓ E-Commerce Specialist</span>
+              <span class="chip c3">✓ Clean & Modern Code</span>
+            </div>
+          </div>
+          <div class="facts card">
+            <div class="title">// QUICK_FACTS</div>
+            <div class="row"><span>Degree:</span><span>B.Tech CSE</span></div>
+            <div class="row"><span>Specialization:</span><span style="color:var(--cyan)">Web Design & Business Sites</span></div>
+            <div class="row"><span>Core Stack:</span><span style="color:var(--violet)">React, Tailwind, JS, Shopify</span></div>
+            <div class="row"><span>Availability:</span><span style="color:var(--emerald)">Open for Client Work</span></div>
+            <a href="/resume-wrishikesh-chowdhury.pdf" download class="btn btn-ghost btn-block" style="margin-top:6px;">Download_CV.pdf</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head" style="justify-content:center;"><span class="eyebrow">[ SECTION_02 ]</span><h2>Skills & Technical Expertise</h2></div>
+        <div class="skills-grid">
+          <div class="skill-panel card">
+            <h3 style="font-family:var(--font-mono); color:var(--cyan); font-size:17px; margin-bottom:22px;">⚡ Technical Competencies</h3>
+            <div id="skill-bars"></div>
+          </div>
+          <div class="skill-panel card" style="display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <h3 style="font-family:var(--font-mono); color:var(--violet); font-size:17px; margin-bottom:22px;">💼 Business Value Capabilities</h3>
+              <div class="cap-item"><span class="mark">&gt;</span><span>Conversion Rate Optimization (CRO)</span></div>
+              <div class="cap-item"><span class="mark">&gt;</span><span>Mobile-First Responsive Layouts</span></div>
+              <div class="cap-item"><span class="mark">&gt;</span><span>Page Speed & Performance Tuning</span></div>
+              <div class="cap-item"><span class="mark">&gt;</span><span>On-Page SEO Best Practices</span></div>
+              <div class="cap-item"><span class="mark">&gt;</span><span>E-Commerce Store Setup & Launch</span></div>
+              <div class="cap-item"><span class="mark">&gt;</span><span>Domain & Server Hosting Setup</span></div>
+            </div>
+            <div class="edge-note">💡 <strong>Engineering Edge:</strong> Combining computer science fundamentals with high-end aesthetic UI to build scalable web products.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head" style="justify-content:center;"><span class="eyebrow">[ SECTION_03 ]</span><h2>Services Offered</h2></div>
+        <div class="services-grid">
+          <div class="service-card card">
+            <div><div class="service-num">01</div><h3>Custom E-Commerce Storefronts</h3><p>Full online store setup tailored for high conversion, responsive checkout, catalog organization, and smooth customer experience.</p></div>
+            <div class="service-tags"><span class="tag">Shopify</span><span class="tag">Tailwind</span><span class="tag">Cart Optimization</span></div>
+          </div>
+          <div class="service-card card">
+            <div><div class="service-num">02</div><h3>Business & Corporate Websites</h3><p>Sleek multi-page and single-page websites that showcase your services, build brand authority, and turn visitors into leads.</p></div>
+            <div class="service-tags"><span class="tag">Brand UI</span><span class="tag">Lead Gen</span><span class="tag">Fast Loading</span></div>
+          </div>
+          <div class="service-card card">
+            <div><div class="service-num">03</div><h3>High-Converting Landing Pages</h3><p>Laser-focused landing pages engineered for marketing campaigns, direct response ads, and product launches.</p></div>
+            <div class="service-tags"><span class="tag">CRO</span><span class="tag">A/B Ready</span><span class="tag">Mobile First</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head" style="justify-content:center;"><span class="eyebrow">[ SECTION_04 ]</span><h2>Client Work & Portfolio</h2></div>
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="wrap">
+        <div class="section-head" style="justify-content:center;"><span class="eyebrow">[ SECTION_05 ]</span><h2>Development Process</h2></div>
+        <div class="process-grid">
+          <div class="process-card card"><div class="n">01.</div><h3>Discovery & Strategy</h3><p>Understanding your business goals, brand identity, target audience, and website requirements.</p></div>
+          <div class="process-card card"><div class="n">02.</div><h3>UI/UX Design</h3><p>Crafting wireframes and responsive layouts focused on conversion rate optimization.</p></div>
+          <div class="process-card card"><div class="n">03.</div><h3>Development & Engineering</h3><p>Building clean, optimized code using React, Tailwind CSS, and lightweight scripts for high speed.</p></div>
+          <div class="process-card card"><div class="n">04.</div><h3>Testing & Launch</h3><p>Cross-browser testing, mobile responsiveness checks, SEO optimization, and final deployment.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <div class="wrap">
+        <div class="section-head" style="justify-content:center;"><span class="eyebrow">[ SECTION_06 ]</span><h2>What Clients Say</h2></div>
+        <div class="testi-grid">
+          <div class="testi-card card">
+            <div class="testi-stars">★★★★★</div>
+            <p>"Wrishikesh built a lightning-fast web store that significantly elevated our brand's online look. Communication was clear the whole way through."</p>
+            <div class="testi-person"><div class="testi-avatar">RP</div><div><div class="testi-name">Riya Patel</div><div class="testi-role">Founder, GrabNGoz</div></div></div>
+          </div>
+          <div class="testi-card card">
+            <div class="testi-stars">★★★★★</div>
+            <p>"Our client inbound inquiries increased noticeably after launching the new site. The performance scores speak for themselves."</p>
+            <div class="testi-person"><div class="testi-avatar">AK</div><div><div class="testi-name">Arjun Kapoor</div><div class="testi-role">Director, Corporate Agency</div></div></div>
+          </div>
+          <div class="testi-card card">
+            <div class="testi-stars">★★★★★</div>
+            <p>"Clean, intuitive, and modern UI. He handled complex dashboard views effortlessly and delivered ahead of schedule."</p>
+            <div class="testi-person"><div class="testi-avatar">SM</div><div><div class="testi-name">Sara Mehta</div><div class="testi-role">Ops Lead, Internal Tools Team</div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="wrap">
+        <div class="section-head" style="justify-content:center;"><span class="eyebrow">[ SECTION_07 ]</span><h2>Frequently Asked Questions</h2></div>
+        <div class="faq-list" id="faq-list"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap" style="max-width:900px;">
+        <div class="section-head" style="justify-content:center; margin-bottom:8px;"><span class="eyebrow">[ SECTION_08 ]</span><h2>Let's Build Your Business Website</h2></div>
+        <p class="contact-lede">Ready to elevate your online business presence? Send a project inquiry or connect directly via the links below.</p>
+
+        <div class="direct-grid">
+          <a href="mailto:wrishikeshchowdhury@gmail.com" class="direct-item card"><span class="lbl">✉ Email Me</span><span class="val">wrishikeshchowdhury@gmail.com</span></a>
+          <a href="https://github.com/rishikesh-dev" target="_blank" rel="noopener noreferrer" class="direct-item card"><span class="lbl">💻 GitHub</span><span class="val">/rishikesh-dev</span></a>
+          <a href="https://www.linkedin.com/in/wrishikesh-chowdhury-103000260" target="_blank" rel="noopener noreferrer" class="direct-item card"><span class="lbl">🔗 LinkedIn</span><span class="val">wrishikesh-chowdhury</span></a>
+          <a href="https://wa.me/917602921338" target="_blank" rel="noopener noreferrer" class="direct-item card wa"><span class="lbl">💬 WhatsApp</span><span class="val">Quick Chat</span></a>
+        </div>
+
+        <form class="contact-form glass" id="contact-form" style="border-radius:28px;" novalidate>
+          <div class="form-grid">
+            <div>
+              <label for="f-name">// Name or Company Name</label>
+              <input id="f-name" name="name" type="text" required placeholder="John Doe / Acme Corp" />
+            </div>
+            <div>
+              <label for="f-email">// Email Address</label>
+              <input id="f-email" name="email" type="email" required placeholder="john@company.com" />
+            </div>
+          </div>
+          <label for="f-message">// Project Requirements & Goals</label>
+          <textarea id="f-message" name="message" required placeholder="Tell me about your business, website goals, and preferred timeline..."></textarea>
+          <button type="submit" class="btn btn-primary btn-block">Send_Inquiry()</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="l1">© <span id="year"></span> Wrishikesh Chowdhury — Web Designer & B.Tech CSE Engineer. All rights reserved.</div>
+    <div>Built with semantic HTML, CSS, and vanilla JS for a fast, lightweight experience.</div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+<script>
+(function(){
+  "use strict";
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------------- Data-driven sections (kept out of markup to keep HTML lean) ---------------- */
+  var skills = [
+    { name: "React.js & Next.js", level: 92 },
+    { name: "JavaScript (ES6+) & Web APIs", level: 90 },
+    { name: "Tailwind CSS & Responsive UI", level: 95 },
+    { name: "HTML5 / CSS3 / Animations", level: 98 },
+    { name: "Shopify & E-Commerce Web Design", level: 88 },
+    { name: "UI/UX & Figma-to-Code Conversion", level: 85 }
+  ];
+  var skillBars = document.getElementById('skill-bars');
+  var barEls = [];
+  skills.forEach(function(s){
+    var row = document.createElement('div');
+    row.className = 'skill-row';
+    row.innerHTML =
+      '<div class="skill-top"><span>' + s.name + '</span><span class="pct">' + s.level + '%</span></div>' +
+      '<div class="bar-track"><div class="bar-fill" data-level="' + s.level + '"></div></div>';
+    skillBars.appendChild(row);
+    barEls.push(row.querySelector('.bar-fill'));
+  });
+
+  var projects = [
+    {
+      title: "GrabNGoz E-Commerce Platform",
+      category: "E-Commerce / Custom Storefront",
+      description: "Full e-commerce platform built for high product conversion, quick add-to-cart workflows, and mobile-first shopping.",
+      tech: ["React.js","Tailwind CSS","Shopify CMS","Netlify"],
+      duration: "2 Weeks",
+      review: "“A lightning-fast web store that elevated our brand's look.”",
+      demoLink: "#", githubLink: "#"
+    },
+    {
+      title: "Corporate Agency Landing Portal",
+      category: "Business Website & SEO",
+      description: "A high-impact landing page designed to capture business inquiries and achieve top performance scores.",
+      tech: ["Next.js","Tailwind CSS","Framer Motion","SEO Core"],
+      duration: "1 Week",
+      review: "“Inbound inquiries increased noticeably after launch.”",
+      demoLink: "#", githubLink: "#"
+    },
+    {
+      title: "Smart Business Management Portal",
+      category: "Web Application UI",
+      description: "Custom interface for internal team management, client communications, and real-time metrics.",
+      tech: ["React.js","JavaScript ES6+","REST APIs","Node.js"],
+      duration: "3 Weeks",
+      review: "“Clean, intuitive UI that handled complex dashboards effortlessly.”",
+      demoLink: "#", githubLink: "#"
+    }
+  ];
+  var pg = document.getElementById('projects-grid');
+  projects.forEach(function(p, idx){
+    var el = document.createElement('div');
+    el.className = 'project-card card';
+    el.innerHTML =
+      '<div>' +
+        '<div class="mock-screen">' +
+          '<div class="mock-bar"><div class="mock-dots"><span></span><span></span><span></span></div><span class="mock-url">https://client-preview-' + (idx+1) + '.dev</span></div>' +
+          '<div class="mock-body"><div class="t">' + p.title + '</div><div class="c">' + p.category + '</div><div class="mock-perf">⚡ 100% Mobile & Speed Score</div></div>' +
+        '</div>' +
+        '<h3>' + p.title + '</h3>' +
+        '<p class="desc">' + p.description + '</p>' +
+        '<div class="tech-row">' + p.tech.map(function(t){ return '<span class="tech-tag">' + t + '</span>'; }).join('') + '</div>' +
+        '<div class="meta-box"><div><strong style="color:var(--text)">Timeline:</strong> ' + p.duration + '</div><div class="review">' + p.review + '</div></div>' +
+      '</div>' +
+      '<div class="project-actions">' +
+        '<a href="' + p.demoLink + '" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Live Demo ↗</a>' +
+        '<a href="' + p.githubLink + '" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GitHub 💻</a>' +
+      '</div>';
+    pg.appendChild(el);
+  });
+
+  var faqs = [
+    { q: "How long does a typical project take?", a: "Landing pages usually take 1 week, full business sites 1–2 weeks, and e-commerce or custom web apps 2–4 weeks depending on scope. You'll get a firm timeline after the discovery call." },
+    { q: "What's included in the price?", a: "Design, development, mobile responsiveness, basic on-page SEO, and one round of post-launch fixes. Ongoing maintenance or added features are quoted separately." },
+    { q: "Do you work with an existing brand or design system?", a: "Yes — send over your brand colors, logo, and any existing guidelines and I'll build within them. If you don't have one yet, I can help define a simple style guide as part of the project." },
+    { q: "Can you help after the site goes live?", a: "Yes, I offer post-launch support for bug fixes, content updates, and small feature additions. Longer-term retainers are available for ongoing work." },
+    { q: "What do you need from me to get started?", a: "A short brief on your business and goals, any existing branding, and example sites you like. From there I'll put together a proposal and timeline." }
+  ];
+  var faqList = document.getElementById('faq-list');
+  faqs.forEach(function(f){
+    var item = document.createElement('div');
+    item.className = 'faq-item card';
+    item.innerHTML =
+      '<button class="faq-q" aria-expanded="false"><span>' + f.q + '</span><span class="plus">+</span></button>' +
+      '<div class="faq-a"><p>' + f.a + '</p></div>';
+    faqList.appendChild(item);
+    var btn = item.querySelector('.faq-q');
+    var ans = item.querySelector('.faq-a');
+    btn.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      // close others
+      faqList.querySelectorAll('.faq-item.open').forEach(function(other){
+        if(other !== item){
+          other.classList.remove('open');
+          other.querySelector('.faq-q').setAttribute('aria-expanded','false');
+          other.querySelector('.faq-a').style.maxHeight = null;
+        }
+      });
+      if(isOpen){
+        item.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+        ans.style.maxHeight = null;
+      } else {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ---------------- Scroll progress bar (rAF-throttled) ---------------- */
+  var progressEl = document.getElementById('scroll-progress');
+  var backToTop = document.getElementById('back-to-top');
+  var ticking = false;
+  function onScroll(){
+    if(!ticking){
+      window.requestAnimationFrame(function(){
+        var totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+        progressEl.style.width = pct + '%';
+        backToTop.classList.toggle('show', window.scrollY > 500);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  backToTop.addEventListener('click', function(){ window.scrollTo({ top:0, behavior:'smooth' }); });
+
+  /* ---------------- Mobile nav ---------------- */
+  var toggle = document.getElementById('nav-toggle');
+  var menu = document.getElementById('mobile-menu');
+  toggle.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); });
+  });
+
+  /* ---------------- Active nav link on scroll (IntersectionObserver — cheap, no scroll math) ---------------- */
+  var navLinks = document.querySelectorAll('.nav-links a');
+  var sections = ['about','skills','services','projects','process','faq','contact']
+    .map(function(id){ return document.getElementById(id); })
+    .filter(Boolean);
+  if('IntersectionObserver' in window){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          navLinks.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id); });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(function(s){ observer.observe(s); });
+  }
+
+  /* ---------------- Reveal skill bars + entrance animations only when visible ---------------- */
+  if('IntersectionObserver' in window){
+    var revealObserver = new IntersectionObserver(function(entries, obs){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.style.width = entry.target.getAttribute('data-level') + '%';
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    barEls.forEach(function(b){ revealObserver.observe(b); });
+  } else {
+    barEls.forEach(function(b){ b.style.width = b.getAttribute('data-level') + '%'; });
+  }
+
+  /* ---------------- Cursor glow — desktop, fine-pointer only, transform + rAF (no layout thrash) ---------------- */
+  var glow = document.getElementById('cursor-glow');
+  var supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if(supportsHover){
+    var mx = 0, my = 0, glowTicking = false;
+    window.addEventListener('mousemove', function(e){
+      mx = e.clientX; my = e.clientY;
+      if(!glowTicking){
+        window.requestAnimationFrame(function(){
+          glow.style.transform = 'translate(' + (mx - 210) + 'px,' + (my - 210) + 'px)';
+          glowTicking = false;
+        });
+        glowTicking = true;
+      }
+    }, { passive: true });
+  } else {
+    glow.style.display = 'none';
+  }
+
+  /* ---------------- Contact form (client-side only — wire to your own backend / Formspree) ---------------- */
+  var form = document.getElementById('contact-form');
+  var status = document.getElementById('form-status');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = form.name.value.trim();
+    var email = form.email.value.trim();
+    var message = form.message.value.trim();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    if(!name || !emailOk || !message){
+      status.textContent = 'Please fill in your name, a valid email, and a short message.';
+      status.classList.add('form-error');
+      return;
+    }
+    status.classList.remove('form-error');
+    status.textContent = 'Submitting inquiry...';
+
+    // TODO: replace with a real endpoint (e.g. Formspree, your own API route) —
+    // this currently only simulates a submission client-side.
+    setTimeout(function(){
+      status.textContent = 'Message received — Wrishikesh will get back to you shortly.';
+      form.reset();
+    }, 900);
+  });
+
+})();
+</script>
 </body>
 </html>
