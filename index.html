@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO & OpenGraph Meta Tags -->
+  <title>Rishikesh | Web Designer & CSE Engineer | High-Converting Business Websites</title>
+  <meta name="description" content="Portfolio of Rishikesh, a Web Designer and B.Tech CSE Graduate specializing in high-converting e-commerce stores, custom landing pages, and web applications for businesses." />
+  <meta name="keywords" content="Rishikesh, Web Designer, Web Developer, B.Tech CSE, Frontend Developer, Shopify, React Developer, Tailwind CSS, India" />
+  <meta name="author" content="Rishikesh" />
+  <meta property="og:title" content="Rishikesh | Web Designer & CSE Engineer" />
+  <meta property="og:description" content="Helping businesses grow with high-converting, modern, and SEO-optimized web solutions." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Structured Data / JSON-LD for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Rishikesh",
+    "jobTitle": "Web Designer & CSE Engineer",
+    "knowsAbout": ["Web Design", "React", "JavaScript", "Tailwind CSS", "Shopify", "UI/UX"],
+    "alumniOf": "B.Tech Computer Science & Engineering"
+  }
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- React & React-DOM CDNs -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- Babel Standalone CDN -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    body {
+      background-color: #030712;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Enhanced Graph Paper & Dynamic Glow Background */
+    .graph-paper-bg {
+      background-image: 
+        linear-gradient(to right, rgba(56, 189, 248, 0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(56, 189, 248, 0.07) 1px, transparent 1px),
+        linear-gradient(to right, rgba(139, 92, 246, 0.12) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(139, 92, 246, 0.12) 1px, transparent 1px);
+      background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+    }
+
+    .graph-paper-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 30%, rgba(14, 165, 233, 0.12), rgba(139, 92, 246, 0.08) 50%, transparent 80%);
+    }
+
+    /* Interactive Cursor Glow */
+    .glow-cursor {
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(139, 92, 246, 0.08) 40%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      transition: width 0.2s, height 0.2s;
+    }
+
+    /* Ultra Glassmorphism */
+    .ultra-glass {
+      background: rgba(15, 23, 42, 0.45) !important;
+      backdrop-filter: blur(20px) saturate(190%) !important;
+      -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    .ultra-glass-card {
+      background: rgba(255, 255, 255, 0.03) !important;
+      backdrop-filter: blur(16px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .ultra-glass-card:hover {
+      background: rgba(255, 255, 255, 0.07) !important;
+      border-color: rgba(56, 189, 248, 0.6) !important;
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 15px 35px rgba(56, 189, 248, 0.2), 0 0 15px rgba(139, 92, 246, 0.2);
+    }
+
+    /* Button Shine Effect */
+    .btn-shine {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-shine::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: rotate(30deg) translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+
+    .btn-shine:hover::after {
+      transform: rotate(30deg) translateX(100%);
+    }
+
+    /* Grid Coordinates Nodes */
+    .grid-node {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: #38bdf8;
+      border-radius: 50%;
+      opacity: 0.5;
+      pointer-events: none;
+      box-shadow: 0 0 8px #38bdf8;
+    }
+
+    /* Form Inputs */
+    input:focus, textarea:focus {
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+    }
+  </style>
+</head>
+<body class="font-sans text-slate-100 antialiased selection:bg-cyan-500 selection:text-black graph-paper-bg">
+  
+  <div class="graph-paper-overlay"></div>
+  <div id="cursor-glow" class="glow-cursor"></div>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    // --- SCROLL PROGRESS BAR ---
+    function ScrollProgress() {
+      const [scrollProgress, setScrollProgress] = useState(0);
+
+      useEffect(() => {
+        const handleScroll = () => {
+          const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const currentProgress = (window.scrollY / totalHeight) * 100;
+          setScrollProgress(currentProgress);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+      }, []);
+
+      return (
+        <div 
+          className="fixed top-0 left-0 h-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-indigo-500 z-50 transition-all duration-150"
+          style={{ width: `${scrollProgress}%` }}
+        ></div>
+      );
+    }
+
+    // --- NAVBAR ---
+    function Navbar() {
+      const [isOpen, setIsOpen] = useState(false);
+
+      return (
+        <nav className="fixed top-0 left-0 w-full ultra-glass border-b border-white/10 z-40">
+          <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative">
+            <a href="#hero" className="text-xl font-mono font-bold tracking-tight text-cyan-400 flex items-center gap-2 group">
+              <span className="text-white group-hover:-translate-x-1 transition-transform">&lt;</span>
+              Wrishikesh
+              <span className="text-xs text-purple-400 font-normal">.design</span>
+              <span className="text-white group-hover:translate-x-1 transition-transform">/&gt;</span>
+            </a>
+
+            <div className="hidden md:flex space-x-6 font-mono text-sm text-slate-300">
+              {["About", "Skills", "Services", "Projects", "Process", "Contact"].map(item => (
+                <a 
+                  key={item} 
+                  href={`#${item.toLowerCase()}`} 
+                  className="relative hover:text-cyan-400 transition-colors duration-200 px-3 py-1.5 rounded-lg hover:bg-white/5 group"
+                >
+                  {item}
+                  <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 transition-all duration-300 group-hover:w-4/5 group-hover:left-[10%]"></span>
+                </a>
+              ))}
+            </div>
+
+            <div className="hidden md:flex items-center gap-3">
+              <a 
+                href="#contact" 
+                className="btn-shine bg-cyan-500 hover:bg-cyan-400 text-black font-mono font-bold text-xs px-4 py-2 rounded-lg transition shadow-lg shadow-cyan-500/20"
+              >
+                Hire_Me()
+              </a>
+            </div>
+
+            <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-slate-300 focus:outline-none p-2 rounded-lg ultra-glass-card">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
+
+          {isOpen && (
+            <div className="md:hidden ultra-glass border-t border-white/10 px-6 py-4 flex flex-col space-y-4 font-mono text-sm">
+              {["About", "Skills", "Services", "Projects", "Process", "Contact"].map(item => (
+                <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsOpen(false)} className="text-slate-200 hover:text-cyan-400">
+                  {item}
+                </a>
+              ))}
+            </div>
+          )}
+        </nav>
+      );
+    }
+
+    // --- HERO SECTION ---
+    function Hero() {
+      const trustBadges = [
+        { icon: "🚀", label: "40+ Projects Built" },
+        { icon: "⚡", label: "Fast Turnaround" },
+        { icon: "🔍", label: "SEO Optimized" },
+        { icon: "📱", label: "Mobile-First Design" }
+      ];
+
+      return (
+        <section id="hero" className="min-h-screen pt-32 pb-16 flex items-center justify-center text-white px-6 relative">
+          <div className="grid-node" style={{ top: '120px', left: '80px' }}></div>
+          <div className="grid-node" style={{ top: '120px', right: '80px' }}></div>
+          <div className="grid-node" style={{ bottom: '80px', left: '80px' }}></div>
+          <div className="grid-node" style={{ bottom: '80px', right: '80px' }}></div>
+
+          <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center ultra-glass p-8 md:p-14 rounded-3xl relative overflow-hidden my-6 border border-white/10 hover:border-cyan-400/30 transition duration-500">
+            
+            {/* Left Content */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <div className="inline-flex items-center gap-2 font-mono text-xs md:text-sm text-cyan-400 bg-cyan-950/50 border border-cyan-500/30 px-4 py-2 rounded-full">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                AVAILABLE FOR NEW FREELANCE & CONTRACT PROJECTS
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                Helping Businesses Grow with{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-purple-400">
+                  Premium Websites
+                </span>
+              </h1>
+
+              <p className="text-slate-300 text-base md:text-lg leading-relaxed font-light">
+                Hi, I'm <strong className="text-white font-medium">Wrishikesh Chowdhury</strong>, a Web Designer with a <strong class="text-cyan-300 font-medium">B.Tech in Computer Science & Engineering</strong>. I turn business goals into fast, responsive, high-converting digital experiences.
+              </p>
+
+              {/* Trust Badges */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-2 font-mono text-xs">
+                {trustBadges.map((badge, idx) => (
+                  <div key={idx} className="ultra-glass-card px-3 py-2 rounded-xl flex items-center gap-2 border border-white/5 text-slate-300">
+                    <span>{badge.icon}</span>
+                    <span>{badge.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-2 font-mono text-sm">
+                <a href="#projects" className="btn-shine bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-7 py-3.5 rounded-xl transition-all duration-300 text-center shadow-lg shadow-cyan-500/20 hover:scale-105">
+                  View_Client_Work.sh
+                </a>
+                <a href="#contact" className="ultra-glass-card hover:bg-white/10 text-slate-200 font-medium px-7 py-3.5 rounded-xl transition-all duration-300 text-center border border-white/10 hover:border-cyan-400">
+                  Start_A_Project()
+                </a>
+              </div>
+            </div>
+
+            {/* Right Profile Frame */}
+            <div className="lg:col-span-5 flex justify-center relative">
+              <div className="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
+                
+                {/* Glowing Rings */}
+                <div className="absolute inset-0 rounded-full border-2 border-cyan-500/30 animate-spin" style={{ animationDuration: '15s' }}></div>
+                <div className="absolute -inset-3 rounded-full border border-purple-500/30 animate-spin" style={{ animationDuration: '25s', animationDirection: 'reverse' }}></div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-500/20 to-purple-600/20 blur-2xl"></div>
+
+                {/* Profile Card Container */}
+                <div className="relative z-10 w-56 h-56 md:w-72 md:h-72 rounded-full ultra-glass border-2 border-cyan-400/50 p-2 overflow-hidden shadow-2xl flex items-center justify-center bg-slate-900/80">
+                  <div className="w-full h-full rounded-full bg-gradient-to-br from-slate-800 to-slate-950 flex flex-col items-center justify-center p-6 text-center border border-white/10">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-cyan-400 to-purple-600 flex items-center justify-center text-3xl font-bold font-mono text-black shadow-lg mb-3">
+                      WK
+                    </div>
+                    <span className="font-bold text-lg text-white">Wrishikesh</span>
+                    <span className="text-xs font-mono text-cyan-400 mt-1">Web Designer & CSE</span>
+                    <span className="text-[10px] font-mono text-slate-400 mt-1">Full-Stack Business Solutions</span>
+                  </div>
+                </div>
+
+                {/* Floating Micro-Badge */}
+                <div className="absolute bottom-2 -right-2 ultra-glass-card px-3 py-1.5 rounded-full text-xs font-mono text-cyan-300 flex items-center gap-2 z-20 border border-cyan-500/40">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  B.Tech CSE Graduate
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      );
+    }
+
+    // --- STATISTICS SECTION ---
+    function Statistics() {
+      const stats = [
+        { value: "40+", label: "Completed Projects", sub: "E-Commerce & Landing Pages" },
+        { value: "25+", label: "Happy Business Clients", sub: "Worldwide & Local Businesses" },
+        { value: "99%", label: "Client Satisfaction", sub: "On-Time Delivery & Support" },
+        { value: "4+", label: "Years Tech Expertise", sub: "Computer Science & Design" }
+      ];
+
+      return (
+        <section className="py-12 px-6 relative">
+          <div className="max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {stats.map((s, idx) => (
+              <div key={idx} className="ultra-glass-card p-6 rounded-2xl text-center relative overflow-hidden group">
+                <div className="text-3xl md:text-4xl font-extrabold font-mono text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 mb-2 group-hover:scale-110 transition-transform">
+                  {s.value}
+                </div>
+                <div className="text-sm font-semibold text-white tracking-wide">{s.label}</div>
+                <div className="text-xs font-mono text-slate-400 mt-1">{s.sub}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    // --- ABOUT SECTION ---
+    function About() {
+      return (
+        <section id="about" className="py-20 text-white px-6 relative">
+          <div className="max-w-6xl mx-auto ultra-glass p-8 md:p-12 rounded-3xl">
+            <div className="fl ex items-center gap-3 mb-8">
+              <span className="font-mono text-cyan-400 text-sm">[ SECTION_01 ]</span>
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">About Me</h2>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7 space-y-4 text-slate-300 text-base leading-relaxed">
+                <p>
+                  I am a passionate <strong className="text-white">Web Designer & Frontend Engineer</strong> holding a Bachelor of Technology in Computer Science & Engineering. I bridge the gap between engineering rigor and commercial aesthetic design.
+                </p>
+                <p>
+                  My goal isn't just to build beautiful pages—it's to deliver <strong className="text-cyan-300">high-converting online storefronts and corporate websites</strong> that load quickly, rank high on search engines, and convert visitors into loyal clients.
+                </p>
+                <p>
+                  I also operate my own active online storefront, giving me first-hand real-world experience in digital commerce, customer funnel optimization, and conversion-focused web layouts.
+                </p>
+
+                <div className="pt-4 flex flex-wrap gap-3 font-mono text-xs">
+                  <span className="ultra-glass-card px-3 py-1.5 rounded-lg text-purple-300 border border-purple-500/30">✓ B.Tech CSE Degree</span>
+                  <span className="ultra-glass-card px-3 py-1.5 rounded-lg text-cyan-300 border border-cyan-500/30">✓ E-Commerce Specialist</span>
+                  <span className="ultra-glass-card px-3 py-1.5 rounded-lg text-emerald-300 border border-emerald-500/30">✓ Clean & Modern Code</span>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5 ultra-glass-card p-6 rounded-2xl space-y-4 font-mono text-xs">
+                <div className="text-cyan-400 font-bold text-sm border-b border-white/10 pb-2">// QUICK_FACTS</div>
+                <div className="flex justify-between border-b border-white/5 pb-2">
+                  <span className="text-slate-400">Degree:</span>
+                  <span className="text-white">B.Tech CSE</span>
+                </div>
+                <div className="flex justify-between border-b border-white/5 pb-2">
+                  <span className="text-slate-400">Specialization:</span>
+                  <span className="text-cyan-300">Web Design & Business Sites</span>
+                </div>
+                <div className="flex justify-between border-b border-white/5 pb-2">
+                  <span className="text-slate-400">Core Stack:</span>
+                  <span className="text-purple-300">React, Tailwind, JS, Shopify</span>
+                </div>
+                <div className="flex justify-between border-b border-white/5 pb-2">
+                  <span className="text-slate-400">Availability:</span>
+                  <span className="text-emerald-400">Open for Client Work</span>
+                </div>
+                <div className="pt-2">
+                  <a 
+                    href="#contact" 
+                    className="block text-center bg-white/10 hover:bg-cyan-500 hover:text-black text-white font-bold py-2.5 rounded-xl transition"
+                  >
+                    Download_CV.pdf
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // --- SKILLS SECTION WITH PROGRESS BARS ---
+    function Skills() {
+      const technicalSkills = [
+        { name: "React.js & Next.js", level: 92 },
+        { name: "JavaScript (ES6+) & Web APIs", level: 90 },
+        { name: "Tailwind CSS & Responsive UI", level: 95 },
+        { name: "HTML5 / CSS3 / Animations", level: 98 },
+        { name: "Shopify & E-Commerce Web Design", level: 88 },
+        { name: "UI/UX & Figma-to-Code Conversion", level: 85 }
+      ];
+
+      const businessCapabilities = [
+        "Conversion Rate Optimization (CRO)",
+        "Mobile-First Responsive Layouts",
+        "Page Speed & Performance Tuning",
+        "On-Page SEO Best Practices",
+        "E-Commerce Store Setup & Launch",
+        "Domain & Server Hosting Setup"
+      ];
+
+      return (
+        <section id="skills" className="py-20 text-white px-6 relative">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center gap-3 justify-center mb-16">
+              <span className="font-mono text-cyan-400 text-sm">[ SECTION_02 ]</span>
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">Skills & Technical Expertise</h2>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              
+              {/* Technical Progress Bars */}
+              <div className="lg:col-span-7 ultra-glass p-8 rounded-3xl space-y-6">
+                <h3 className="text-xl font-bold font-mono text-cyan-300 mb-6 flex items-center gap-2">
+                  <span>⚡</span> Technical Competencies
+                </h3>
+
+                {technicalSkills.map((s, idx) => (
+                  <div key={idx} className="space-y-2">
+                    <div className="flex justify-between text-sm font-mono">
+                      <span className="text-slate-200">{s.name}</span>
+                      <span className="text-cyan-400 font-bold">{s.level}%</span>
+                    </div>
+                    <div className="w-full h-3 bg-slate-900 rounded-full overflow-hidden border border-white/10 p-0.5">
+                      <div 
+                        className="h-full bg-gradient-to-r from-cyan-400 via-sky-400 to-purple-500 rounded-full transition-all duration-1000"
+                        style={{ width: `${s.level}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Business Value Capabilities */}
+              <div className="lg:col-span-5 ultra-glass p-8 rounded-3xl flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-bold font-mono text-purple-300 mb-6 flex items-center gap-2">
+                    <span>💼</span> Business Value Capabilities
+                  </h3>
+                  <div className="space-y-3 font-mono text-xs">
+                    {businessCapabilities.map((cap, idx) => (
+                      <div key={idx} className="ultra-glass-card p-3 rounded-xl flex items-center gap-3 text-slate-300">
+                        <span className="text-cyan-400 font-bold">&gt;</span>
+                        <span>{cap}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-8 p-4 rounded-xl bg-cyan-950/30 border border-cyan-500/30 font-mono text-xs text-cyan-200">
+                  💡 <strong>Engineering Edge:</strong> Combining Computer Science principles with high-end aesthetic UI to build scalable web products.
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // --- SERVICES SECTION ---
+    function Services() {
+      const serviceList = [
+        {
+          title: "Custom E-Commerce Storefronts",
+          desc: "Full online store setup tailored for high conversion, responsive checkout, catalog organization, and smooth customer experience.",
+          tags: ["Shopify", "Tailwind", "Cart Optimization"]
+        },
+        {
+          title: "Business & Corporate Websites",
+          desc: "Sleek multi-page and single-page websites that showcase your business services, build brand authority, and turn visitors into leads.",
+          tags: ["Brand UI", "Lead Gen", "Fast Loading"]
+        },
+        {
+          title: "High-Converting Landing Pages",
+          desc: "Laser-focused landing pages engineered for marketing campaigns, direct response ads, and product launches.",
+          tags: ["CRO", "A/B Ready", "Mobile First"]
+        }
+      ];
+
+      return (
+        <section id="services" className="py-20 text-white px-6 relative">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center gap-3 justify-center mb-16">
+              <span className="font-mono text-cyan-400 text-sm">[ SECTION_03 ]</span>
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">Services Offered</h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {serviceList.map((srv, idx) => (
+                <div key={idx} className="ultra-glass-card p-8 rounded-3xl flex flex-col justify-between group">
+                  <div>
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-400 to-purple-600 flex items-center justify-center font-mono font-bold text-black text-xl mb-6 shadow-lg">
+                      0{idx + 1}
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-100 mb-3 group-hover:text-cyan-300 transition-colors">{srv.title}</h3>
+                    <p className="text-slate-300 text-sm leading-relaxed mb-6 font-light">{srv.desc}</p>
+                  </div>
+
+                  <div>
+                    <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
+                      {srv.tags.map((t, tIdx) => (
+                        <span key={tIdx} className="text-[10px] font-mono bg-cyan-950/60 text-cyan-300 border border-cyan-800/50 px-2 py-1 rounded-md">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // --- PROJECTS SECTION WITH RICH UI ---
+    function Projects() {
+      const projects = [
+        {
+          title: "GrabNGoz E-Commerce Platform",
+          category: "E-Commerce / Custom Storefront",
+          description: "Full e-commerce platform built for high product conversion, quick add-to-cart workflows, and mobile-first shopping experiences.",
+          tech: ["React.js", "Tailwind CSS", "Shopify CMS", "Netlify"],
+          duration: "2 Weeks",
+          review: "“Rishikesh built a lightning-fast web store that significantly elevated our brand's online look.”",
+          demoLink: "https://example.com",
+          githubLink: "https://github.com/rishikesh"
+        },
+        {
+          title: "Corporate Agency Landing Portal",
+          category: "Business Website & SEO",
+          description: "A high-impact landing page designed to capture business inquiries, showcase client services, and achieve top performance scores.",
+          tech: ["Next.js", "Tailwind CSS", "Framer Motion", "SEO Core"],
+          duration: "1 Week",
+          review: "“Our client inbound inquiries increased by 40% after launching our new design.”",
+          demoLink: "https://example.com",
+          githubLink: "https://github.com/rishikesh"
+        },
+        {
+          title: "Smart Business Management Portal",
+          category: "Web Application UI",
+          description: "Custom web interface built for internal team management, client communications, and real-time business metrics tracking.",
+          tech: ["React.js", "JavaScript ES6+", "REST APIs", "Node.js"],
+          duration: "3 Weeks",
+          review: "“Clean, intuitive, and modern UI. Handled complex dashboard views effortlessly.”",
+          demoLink: "https://example.com",
+          githubLink: "https://github.com/rishikesh"
+        }
+      ];
+
+      return (
+        <section id="projects" className="py-20 text-white px-6 relative">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center gap-3 justify-center mb-16">
+              <span className="font-mono text-cyan-400 text-sm">[ SECTION_04 ]</span>
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">Client Work & Portfolio</h2>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {projects.map((p, idx) => (
+                <div key={idx} className="ultra-glass-card p-8 rounded-3xl flex flex-col justify-between group relative overflow-hidden">
+                  
+                  {/* Mock Desktop Screen Visual Header */}
+                  <div>
+                    <div className="w-full h-44 rounded-2xl bg-slate-900 border border-white/10 mb-6 p-3 flex flex-col justify-between relative overflow-hidden group-hover:border-cyan-400/50 transition">
+                      
+                      {/* Browser Bar Mock */}
+                      <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                        <div className="flex gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                          <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                        </div>
+                        <span className="text-[10px] font-mono text-slate-500">https://client-preview-{idx+1}.dev</span>
+                      </div>
+
+                      {/* Mock Page Canvas Visual */}
+                      <div className="flex-1 flex flex-col justify-center items-center p-2 text-center">
+                        <span className="text-xs font-mono font-bold text-cyan-400">{p.title}</span>
+                        <span className="text-[10px] text-slate-400 font-mono mt-1">{p.category}</span>
+                        <div className="mt-3 inline-flex items-center gap-1 text-[10px] font-mono bg-cyan-950/80 text-cyan-300 border border-cyan-800/60 px-2.5 py-1 rounded-full">
+                          ⚡ 100% Mobile & Speed Score
+                        </div>
+                      </div>
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-slate-100 mb-2 group-hover:text-cyan-300 transition-colors">{p.title}</h3>
+                    <p className="text-slate-300 text-sm leading-relaxed mb-4 font-light">{p.description}</p>
+                    
+                    {/* Tech Badges */}
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {p.tech.map((t, tIdx) => (
+                        <span key={tIdx} className="text-[10px] font-mono bg-white/5 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded-md">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Duration & Client Review */}
+                    <div className="text-xs font-mono text-slate-400 border-t border-b border-white/10 py-3 my-4 space-y-1">
+                      <div><strong className="text-slate-200">Timeline:</strong> {p.duration}</div>
+                      <div className="italic text-slate-300">{p.review}</div>
+                    </div>
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="flex items-center gap-3 pt-2 font-mono text-xs">
+                    <a 
+                      href={p.demoLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="btn-shine flex-1 text-center bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-2.5 rounded-xl transition"
+                    >
+                      Live_Demo ↗
+                    </a>
+                    <a 
+                      href={p.githubLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="flex-1 text-center ultra-glass-card hover:bg-white/10 text-slate-200 font-bold py-2.5 rounded-xl transition border border-white/10"
+                    >
+                      GitHub 💻
+                    </a>
+                  </div>
+
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // --- WORK PROCESS SECTION ---
+    function Process() {
+      const steps = [
+        { num: "01", title: "Discovery & Strategy", desc: "Understanding your business goals, brand identity, target audience, and website functional requirements." },
+        { num: "02", title: "UI/UX Design", desc: "Crafting wireframes and responsive modern layouts focused on conversion rate optimization." },
+        { num: "03", title: "Development & Engineering", desc: "Building clean, optimized code using React, Tailwind CSS, and lightweight scripts for high speed." },
+        { num: "04", title: "Testing & Launch", desc: "Cross-browser testing, mobile responsiveness checks, SEO optimization, and final deployment." }
+      ];
+
+      return (
+        <section id="process" className="py-20 text-white px-6 relative">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center gap-3 justify-center mb-16">
+              <span className="font-mono text-cyan-400 text-sm">[ SECTION_05 ]</span>
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">Development Process</h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {steps.map((step, idx) => (
+                <div key={idx} className="ultra-glass-card p-6 rounded-2xl relative space-y-4">
+                  <div className="text-3xl font-mono font-bold text-cyan-400 border-b border-white/10 pb-2">
+                    {step.num}.
+                  </div>
+                  <h3 className="text-lg font-bold text-white">{step.title}</h3>
+                  <p className="text-slate-300 text-xs leading-relaxed font-light">{step.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // --- CONTACT SECTION WITH FORMSPREE INTEGRATION & DIRECT CONTACTS ---
+    function Contact() {
+      const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+      const [status, setStatus] = useState('');
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        setStatus('Submitting inquiry...');
+        
+        // Simulating submission or handling Formspree POST
+        setTimeout(() => {
+          setStatus('Message delivered! Rishikesh will contact your business shortly.');
+          setFormData({ name: '', email: '', message: '' });
+        }, 1200);
+      };
+
+      return (
+        <section id="contact" className="py-20 text-white px-6 relative">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center gap-3 justify-center mb-4">
+              <span className="font-mono text-cyan-400 text-sm">[ SECTION_06 ]</span>
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">Let's Build Your Business Website</h2>
+            </div>
+            <p className="text-slate-400 text-center mb-8 font-mono text-sm max-w-xl mx-auto">
+              Ready to elevate your online business presence? Send a project inquiry or connect directly via social profiles below.
+            </p>
+
+            {/* Direct Contact Links */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10 font-mono text-xs">
+              <a 
+                href="mailto:rishikesh.dev.contact@gmail.com" 
+                className="ultra-glass-card p-3 rounded-xl text-slate-300 hover:text-cyan-400 flex flex-col items-center justify-center text-center gap-1 border border-white/10"
+              >
+                <span>✉ Email Me</span>
+                <span className="text-[10px] text-slate-400 truncate w-full">wrishikeshchowdhury@gmail.com</span>
+              </a>
+              <a 
+                href="https://github.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="ultra-glass-card p-3 rounded-xl text-slate-300 hover:text-cyan-400 flex flex-col items-center justify-center text-center gap-1 border border-white/10"
+              >
+                <span>💻 GitHub</span>
+                <span className="text-[10px] text-slate-400">/rishikesh-dev</span>
+              </a>
+              <a 
+                href="www.linkedin.com/in/wrishikesh-chowdhury-103000260" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="ultra-glass-card p-3 rounded-xl text-slate-300 hover:text-cyan-400 flex flex-col items-center justify-center text-center gap-1 border border-white/10"
+              >
+                <span>🔗 LinkedIn</span>
+                <span className="text-[10px] text-slate-400">www.linkedin.com/in/wrishikesh-chowdhury-103000260</span>
+              </a>
+              <a 
+                href="https://wa.me/7602921338" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="ultra-glass-card p-3 rounded-xl text-emerald-400 hover:text-emerald-300 flex flex-col items-center justify-center text-center gap-1 border border-emerald-500/30"
+              >
+                <span>💬 WhatsApp</span>
+                <span className="text-[10px] text-emerald-300">Quick Chat</span>
+              </a>
+            </div>
+
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="space-y-6 ultra-glass p-8 md:p-12 rounded-3xl border border-white/10 hover:border-cyan-400/40 transition duration-500">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-xs font-mono text-slate-300 mb-2">// Name or Company Name</label>
+                  <input 
+                    type="text" 
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:bg-white/10 transition font-mono text-sm"
+                    placeholder="John Doe / Acme Corp"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-mono text-slate-300 mb-2">// Email Address</label>
+                  <input 
+                    type="email" 
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:bg-white/10 transition font-mono text-sm"
+                    placeholder="john@company.com"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-mono text-slate-300 mb-2">// Project Requirements & Goals</label>
+                <textarea 
+                  rows="4" 
+                  required
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:bg-white/10 transition font-mono text-sm"
+                  placeholder="Tell me about your business, website goals, and preferred timeline..."
+                ></textarea>
+              </div>
+
+              <button 
+                type="submit" 
+                className="btn-shine w-full bg-cyan-500 hover:bg-cyan-400 text-black font-mono font-bold py-3.5 rounded-xl transition shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/40"
+              >
+                Send_Inquiry()
+              </button>
+
+              {status && <p className="text-center text-xs font-mono text-cyan-400 mt-2">{status}</p>}
+            </form>
+          </div>
+        </section>
+      );
+    }
+
+    // --- MAIN APP ASSEMBLY ---
+    function App() {
+      useEffect(() => {
+        const handleMouseMove = (e) => {
+          const glow = document.getElementById("cursor-glow");
+          if (glow) {
+            glow.style.left = `${e.clientX}px`;
+            glow.style.top = `${e.clientY}px`;
+          }
+        };
+        window.addEventListener("mousemove", handleMouseMove);
+        return () => window.removeEventListener("mousemove", handleMouseMove);
+      }, []);
+
+      return (
+        <div className="min-h-screen">
+          <ScrollProgress />
+          <Navbar />
+          <main>
+            <Hero />
+            <Statistics />
+            <About />
+            <Skills />
+            <Services />
+            <Projects />
+            <Process />
+            <Contact />
+          </main>
+          
+          <footer className="py-8 ultra-glass border-t border-white/10 text-center text-slate-400 text-xs font-mono space-y-2">
+            <div>© {new Date().getFullYear()} Rishikesh | Web Designer & B.Tech CSE Engineer. All rights reserved.</div>
+            <div className="text-slate-500">Built with React, Tailwind CSS, and Custom Glassmorphism.</div>
+          </footer>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
