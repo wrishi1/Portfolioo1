@@ -3,1391 +3,567 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wrishikesh Chowdhury — Web & Android Application Developer</title>
-    <meta name="description" content="Freelance Web & Android Developer helping businesses turn ideas into modern, scalable and high-performing digital products.">
+    <title>Wrishi Tech Studio | Premium Web & Flutter App Development</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    colors: {
-                        darkBg: '#08090C',
-                        darkNavy: '#0D111A',
-                        cardBg: 'rgba(15, 23, 42, 0.65)',
-                        electricBlue: '#00F0FF',
-                        cyanAccent: '#0070F3',
-                        purpleAccent: '#7928CA'
-                    },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif']
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            cyan: '#06b6d4',
+                            emerald: '#10b981',
+                            purple: '#a855f7'
+                        },
+                        darkbg: '#090d16',
+                        cardbg: 'rgba(15, 23, 42, 0.65)'
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
                     }
                 }
             }
         }
     </script>
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- React & Babel Core -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
     <style>
-        body {
-            background-color: #08090C;
-            color: #E2E8F0;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-        .font-display { fontFamily: 'Space Grotesk', sans-serif; }
-        .glass-panel {
-            background: rgba(13, 17, 26, 0.7);
+        /* Custom Glassmorphism styles */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .glass-card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+        .glass-card-hover {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .glass-card:hover {
-            border-color: rgba(0, 240, 255, 0.3);
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
-            transform: translateY(-3px);
+        .glass-card-hover:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.25);
         }
-        .glow-text {
-            text-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+        .glass-nav {
+            background: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-effect {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.25;
+            pointer-events: none;
         }
         .gradient-text {
-            background: linear-gradient(135deg, #00F0FF 0%, #0070F3 50%, #7928CA 100%);
+            background: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #06b6d4 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .gradient-border {
-            position: relative;
-            background-clip: padding-box;
-            border: 1px solid transparent;
-        }
-        .gradient-border::before {
-            content: '';
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-            z-index: -1;
-            margin: -1px;
-            border-radius: inherit;
-            background: linear-gradient(135deg, rgba(0,240,255,0.4), rgba(121,40,202,0.4));
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #08090C; }
-        ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #00F0FF; }
     </style>
 </head>
-<body>
-    <div id="root"></div>
+<body class="bg-darkbg text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
 
-    <script type="text/babel">
-        const INITIAL_DATA = {
-            settings: {
-                name: "Wrishikesh Chowdhury",
-                title: "Computer Science & Engineering Graduate",
-                role: "Web & Android Application Developer",
-                heroHeading: "I Build Digital Experiences That Help Businesses Grow.",
-                heroSubheading: "Freelance Web & Android Developer helping businesses turn ideas into modern, scalable and high-performing digital products.",
-                availability: "Available for Freelance Projects",
-                email: "contact@wrishikesh.dev",
-                phone: "+91 98765 43210",
-                whatsapp: "+919876543210",
-                linkedin: "https://linkedin.com/in/wrishikesh",
-                github: "https://github.com/wrishikesh",
-                instagram: "https://instagram.com/wrishikesh.dev",
-                stats: {
-                    projects: "45+",
-                    clients: "32+",
-                    websites: "28+",
-                    apps: "17+"
-                }
-            },
-            services: [
-                { id: 1, title: "Web Development", desc: "Modern, responsive websites and web applications built for speed, conversion, and scalability.", icon: "fa-code", tech: ["React", "Next.js", "Tailwind", "Node.js"] },
-                { id: 2, title: "Android App Development", desc: "Custom native & cross-platform Android applications with modern UI and smooth offline capability.", icon: "fa-mobile-screen-button", tech: ["Flutter", "Android SDK", "Java/Kotlin", "Firebase"] },
-                { id: 3, title: "Business Websites", desc: "High-converting corporate and startup websites tailored to elevate brand authority.", icon: "fa-briefcase", tech: ["HTML5/CSS3", "JavaScript", "SEO", "Analytics"] },
-                { id: 4, title: "E-Commerce Development", desc: "Custom online storefronts with payment gateways, inventory management, and fast checkout.", icon: "fa-cart-shopping", tech: ["React", "Razorpay / Stripe", "REST API", "Database"] },
-                { id: 5, title: "UI/UX Implementation", desc: "Pixel-perfect frontend implementations with modern micro-interactions and smooth performance.", icon: "fa-palette", tech: ["Figma to Code", "CSS Animations", "Responsive"] },
-                { id: 6, title: "Custom Software Solutions", desc: "Tailor-made web applications and management systems built for specific business workflows.", icon: "fa-gears", tech: ["Full Stack", "Database Design", "Cloud Deployment"] }
-            ],
-            projects: [
-                {
-                    id: 1,
-                    title: "NovaPay FinTech App",
-                    client: "Nova Financial Inc.",
-                    category: "Android App",
-                    description: "A fast, secure mobile banking & peer-to-peer money transfer application with biometric authentication.",
-                    challenge: "The client needed an ultra-low latency transaction mobile interface with offline queue capabilities.",
-                    solution: "Built a Flutter-based native solution with encrypted local storage and automated cloud synchronization.",
-                    outcome: "Increased daily active users by 140% and reduced transaction failure rates to under 0.01%.",
-                    tech: ["Flutter", "Firebase", "Node.js", "REST API"],
-                    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80",
-                    featured: true,
-                    status: "Published",
-                    liveUrl: "https://example.com/novapay",
-                    appUrl: "https://play.google.com/store"
-                },
-                {
-                    id: 2,
-                    title: "Apex Logistics Platform",
-                    client: "Apex Global Supply",
-                    category: "Business Web App",
-                    description: "End-to-end fleet tracking and dispatch control system for regional logistics operations.",
-                    challenge: "Managing real-time status updates for over 300 active delivery vehicles concurrently.",
-                    solution: "Developed an interactive React dashboard integrated with WebSockets and custom mapping layers.",
-                    outcome: "Streamlined route optimization, saving an estimated 18% in monthly fuel costs.",
-                    tech: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
-                    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
-                    featured: true,
-                    status: "Published",
-                    liveUrl: "https://example.com/apex",
-                    appUrl: ""
-                },
-                {
-                    id: 3,
-                    title: "Lumina Luxury E-Commerce",
-                    client: "Lumina Jewels",
-                    category: "E-Commerce",
-                    description: "A high-end jewellery brand website with interactive 3D model previews and custom cart flow.",
-                    challenge: "Deliver luxury aesthetics without compromising site speed and mobile loading times.",
-                    solution: "Optimized image delivery, implemented lazy loading, and built high-performance micro-animations.",
-                    outcome: "Boosted online sales conversion rate by 2.4x in the first quarter post-launch.",
-                    tech: ["React", "Tailwind CSS", "Three.js", "Razorpay API"],
-                    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80",
-                    featured: true,
-                    status: "Published",
-                    liveUrl: "https://example.com/lumina",
-                    appUrl: ""
-                },
-                {
-                    id: 4,
-                    title: "HealthPulse Doctor Booking App",
-                    client: "HealthPulse Clinics",
-                    category: "Android App",
-                    description: "Patient appointment scheduling, digital prescription viewer, and tele-consultation app.",
-                    challenge: "Creating an accessible, ultra-simple interface for elderly patients.",
-                    solution: "Engineered high-contrast UI, voice prompts, and simplified one-click doctor booking.",
-                    outcome: "Over 50,000+ downloads with a 4.8 star average rating on Google Play Store.",
-                    tech: ["Android / Java", "Firebase Auth", "Firestore", "WebRTC"],
-                    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
-                    featured: false,
-                    status: "Published",
-                    liveUrl: "",
-                    appUrl: "https://play.google.com/store"
-                }
-            ],
-            clients: [
-                { id: 1, name: "Nova Financial", industry: "FinTech & Banking", projectsCount: "2 Projects", logo: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=200&q=80", website: "https://novafinancial.com", desc: "Leading digital payments solution provider." },
-                { id: 2, name: "Apex Global Supply", industry: "Logistics & Freight", projectsCount: "1 Project", logo: "https://images.unsplash.com/photo-1614680376593-902f749f71c3?auto=format&fit=crop&w=200&q=80", website: "https://apexlogistics.com", desc: "Global supply chain management firm." },
-                { id: 3, name: "Lumina Jewels", industry: "E-Commerce / Fashion", projectsCount: "1 Project", logo: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80", website: "https://luminajewels.com", desc: "Luxury handcrafted jewelry studio." },
-                { id: 4, name: "HealthPulse", industry: "Healthcare Technology", projectsCount: "2 Projects", logo: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=200&q=80", website: "https://healthpulse.org", desc: "Modern clinic network and healthcare providers." }
-            ],
-            reviews: [
-                { id: 1, clientName: "Marcus Vance", company: "Nova Financial", photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80", rating: 5, project: "NovaPay FinTech App", text: "Wrishikesh delivered our flagship mobile application ahead of schedule. His attention to smooth UI micro-interactions and secure backend communication exceeded our expectations." },
-                { id: 2, clientName: "Sarah Jenkins", company: "Apex Global Logistics", photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80", rating: 5, project: "Apex Logistics Platform", text: "Working with Wrishikesh was a breath of fresh air. He doesn't just code; he understands business requirements and actively suggests solutions that save costs and improve efficiency." },
-                { id: 3, clientName: "David Chen", company: "Lumina Jewels", photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80", rating: 5, project: "Lumina Luxury E-Commerce", text: "Our e-commerce revenue grew significantly after launching the site built by Wrishikesh. His mastery over modern frontend performance is second to none." }
-            ],
-            technologies: [
-                { name: "Flutter", category: "Mobile", icon: "fa-brands fa-flutter" },
-                { name: "Android / Java", category: "Mobile", icon: "fa-brands fa-android" },
-                { name: "React / Next.js", category: "Frontend", icon: "fa-brands fa-react" },
-                { name: "JavaScript / ES6+", category: "Language", icon: "fa-brands fa-js" },
-                { name: "Node.js", category: "Backend", icon: "fa-brands fa-node-js" },
-                { name: "Python", category: "Language", icon: "fa-brands fa-python" },
-                { name: "Tailwind CSS", category: "Frontend", icon: "fa-solid fa-code" },
-                { name: "Firebase", category: "Cloud/Database", icon: "fa-solid fa-fire" },
-                { name: "MongoDB", category: "Database", icon: "fa-solid fa-database" },
-                { name: "Git & GitHub", category: "DevOps", icon: "fa-brands fa-github" }
-            ],
-            enquiries: [
-                { id: 101, name: "Emily Carter", email: "emily@techcorp.io", phone: "+91 98765 01928", business: "TechCorp Inc.", projectType: "Web Application", budget: "₹1,50,000", message: "Hi Wrishikesh, we need a SaaS dashboard for our internal team analytics.", date: "2026-09-28", status: "New" }
-            ]
-        };
+    <!-- Ambient Background Glows -->
+    <div class="glow-effect w-96 h-96 bg-brand-500 -top-20 -left-20"></div>
+    <div class="glow-effect w-96 h-96 bg-brand-cyan top-1/3 -right-20"></div>
+    <div class="glow-effect w-[500px] h-[500px] bg-brand-purple bottom-10 left-1/4"></div>
 
-        const TechCanvas = () => {
-            const canvasRef = React.useRef(null);
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-40 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 via-brand-purple to-brand-cyan p-[2px] transition-transform duration-300 group-hover:scale-105">
+                    <div class="w-full h-full bg-darkbg rounded-[10px] flex items-center justify-center">
+                        <span class="font-extrabold text-xl text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-brand-cyan">W</span>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-lg tracking-tight text-white group-hover:text-brand-cyan transition-colors">Wrishi Tech Studio</span>
+                    <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Web & App Engineer</span>
+                </div>
+            </a>
 
-            React.useEffect(() => {
-                const canvas = canvasRef.current;
-                if(!canvas) return;
-                const ctx = canvas.getContext('2d');
-                let animationFrameId;
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#services" class="hover:text-white transition-colors flex items-center gap-1.5"><i data-lucide="cpu" class="w-4 h-4 text-brand-cyan"></i> Services</a>
+                <a href="#projects" class="hover:text-white transition-colors flex items-center gap-1.5"><i data-lucide="layers" class="w-4 h-4 text-brand-500"></i> Portfolio</a>
+                <a href="#about" class="hover:text-white transition-colors flex items-center gap-1.5"><i data-lucide="user" class="w-4 h-4 text-brand-purple"></i> About</a>
+                <a href="https://www.linkedin.com/in/wrishikesh-chowdhury-103000260" target="_blank" rel="noopener" class="hover:text-brand-cyan transition-colors flex items-center gap-1">
+                    <i data-lucide="linkedin" class="w-4 h-4 text-blue-400"></i> LinkedIn
+                </a>
+            </nav>
 
-                const resize = () => {
-                    canvas.width = window.innerWidth;
-                    canvas.height = window.innerHeight;
-                };
-                resize();
-                window.addEventListener('resize', resize);
+            <!-- Actions -->
+            <div class="flex items-center gap-3">
+                <button onclick="openModal()" class="relative group px-5 py-2.5 rounded-xl font-semibold text-sm text-white overflow-hidden transition-all duration-300">
+                    <span class="absolute inset-0 bg-gradient-to-r from-brand-600 via-brand-purple to-brand-cyan transition-all duration-300 group-hover:opacity-90"></span>
+                    <span class="relative flex items-center gap-2">
+                        <i data-lucide="message-square" class="w-4 h-4"></i> Get Quote
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
 
-                const particles = [];
-                const particleCount = Math.min(Math.floor(window.innerWidth / 20), 60);
+    <main class="flex-grow pt-24">
 
-                for(let i = 0; i < particleCount; i++) {
-                    particles.push({
-                        x: Math.random() * canvas.width,
-                        y: Math.random() * canvas.height,
-                        vx: (Math.random() - 0.5) * 0.4,
-                        vy: (Math.random() - 0.5) * 0.4,
-                        radius: Math.random() * 2 + 1,
-                        alpha: Math.random() * 0.5 + 0.2
-                    });
-                }
+        <!-- Hero Section -->
+        <section class="relative min-h-[85vh] flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto text-center space-y-8">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-brand-500/30 text-xs sm:text-sm font-mono text-slate-300 shadow-inner">
+                    <span class="w-2 h-2 rounded-full bg-brand-emerald animate-ping"></span>
+                    <span>Available for Freelance & Custom Projects</span>
+                </div>
 
-                const render = () => {
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                    
-                    // Draw subtle grid
-                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.02)';
-                    ctx.lineWidth = 1;
-                    const gridSize = 60;
-                    for (let x = 0; x < canvas.width; x += gridSize) {
-                        ctx.beginPath();
-                        ctx.moveTo(x, 0);
-                        ctx.lineTo(x, canvas.height);
-                        ctx.stroke();
-                    }
-                    for (let y = 0; y < canvas.height; y += gridSize) {
-                        ctx.beginPath();
-                        ctx.moveTo(0, y);
-                        ctx.lineTo(canvas.width, y);
-                        ctx.stroke();
-                    }
+                <!-- Main Headline -->
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.15] text-white">
+                    Crafting <span class="gradient-text">Modern Web Experience</span> & Native Flutter Apps
+                </h1>
 
-                    // Particles & connections
-                    particles.forEach((p, idx) => {
-                        p.x += p.vx;
-                        p.y += p.vy;
+                <!-- Subheadline -->
+                <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
+                    Wrishi Tech Studio delivers high-performance, visually stunning business websites and sleek Android applications tailored to scale your brand and engage customers.
+                </p>
 
-                        if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                        if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <a href="#projects" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold flex items-center justify-center gap-2 border border-slate-700 transition-all shadow-lg hover:border-slate-500">
+                        <i data-lucide="layout-grid" class="w-5 h-5 text-brand-cyan"></i>
+                        Explore Projects
+                    </a>
+                    <button onclick="openModal()" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-600 to-brand-purple hover:from-brand-500 hover:to-brand-purple text-white font-semibold flex items-center justify-center gap-2 shadow-lg shadow-brand-500/25 transition-all transform hover:-translate-y-0.5">
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                        Request Free Quote
+                    </button>
+                </div>
 
-                        ctx.fillStyle = `rgba(0, 240, 255, ${p.alpha})`;
-                        ctx.beginPath();
-                        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                        ctx.fill();
+                <!-- Tech Badges Bar -->
+                <div class="pt-12 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-slate-400 text-xs font-mono">
+                    <span class="px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center gap-1.5"><i data-lucide="code" class="w-4 h-4 text-brand-cyan"></i> Modern Web</span>
+                    <span class="px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center gap-1.5"><i data-lucide="smartphone" class="w-4 h-4 text-brand-emerald"></i> Flutter Apps</span>
+                    <span class="px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center gap-1.5"><i data-lucide="sparkles" class="w-4 h-4 text-brand-purple"></i> Glassmorphic UI</span>
+                    <span class="px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center gap-1.5"><i data-lucide="zap" class="w-4 h-4 text-amber-400"></i> Fast Loading</span>
+                </div>
+            </div>
+        </section>
 
-                        for(let j = idx + 1; j < particles.length; j++) {
-                            const p2 = particles[j];
-                            const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-                            if(dist < 120) {
-                                ctx.strokeStyle = `rgba(0, 240, 255, ${0.15 * (1 - dist / 120)})`;
-                                ctx.beginPath();
-                                ctx.moveTo(p.x, p.y);
-                                ctx.lineTo(p2.x, p2.y);
-                                ctx.stroke();
-                            }
-                        }
-                    });
+        <!-- Services Section -->
+        <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center space-y-4 mb-16">
+                <h2 class="text-xs font-mono tracking-widest text-brand-cyan uppercase">Core Competencies</h2>
+                <p class="text-3xl sm:text-4xl font-bold text-white">High-Impact Tech Solutions</p>
+            </div>
 
-                    animationFrameId = requestAnimationFrame(render);
-                };
-
-                render();
-
-                return () => {
-                    window.removeEventListener('resize', resize);
-                    cancelAnimationFrame(animationFrameId);
-                };
-            }, []);
-
-            return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />;
-        };
-
-        const App = () => {
-            // LocalStorage State Initialization
-            const [store, setStore] = React.useState(() => {
-                const saved = localStorage.getItem('wrishikesh_portfolio_db');
-                if (saved) {
-                    try { return JSON.parse(saved); } catch (e) { console.error(e); }
-                }
-                return INITIAL_DATA;
-            });
-
-            const [isAdminOpen, setIsAdminOpen] = React.useState(false);
-            const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-            const [adminTab, setAdminTab] = React.useState('overview');
-            const [selectedProject, setSelectedProject] = React.useState(null);
-            const [selectedService, setSelectedService] = React.useState(null);
-            const [activeFilter, setActiveFilter] = React.useState('All');
-            const [toastMessage, setToastMessage] = React.useState('');
-            const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-            const [customBudgetValue, setCustomBudgetValue] = React.useState('');
-
-            // Sync to local storage
-            React.useEffect(() => {
-                localStorage.setItem('wrishikesh_portfolio_db', JSON.stringify(store));
-            }, [store]);
-
-            const showToast = (msg) => {
-                setToastMessage(msg);
-                setTimeout(() => setToastMessage(''), 3500);
-            };
-
-            const handleEnquirySubmit = (e) => {
-                e.preventDefault();
-                const fd = new FormData(e.target);
-                const rawNum = fd.get('budgetValue');
-                const formattedBudget = rawNum ? `₹${Number(rawNum).toLocaleString('en-IN')}` : 'Not specified';
-
-                const newEnquiry = {
-                    id: Date.now(),
-                    name: fd.get('name'),
-                    email: fd.get('email'),
-                    phone: fd.get('phone'),
-                    business: fd.get('business'),
-                    projectType: fd.get('projectType'),
-                    budget: formattedBudget,
-                    message: fd.get('message'),
-                    date: new Date().toISOString().split('T')[0],
-                    status: "New"
-                };
-                setStore(prev => ({ ...prev, enquiries: [newEnquiry, ...prev.enquiries] }));
-                e.target.reset();
-                setCustomBudgetValue('');
-                showToast("✓ Enquiry sent successfully! Wrishikesh will get back to you shortly.");
-            };
-
-            return (
-                <div className="relative min-h-screen bg-darkBg text-slate-200">
-                    <TechCanvas />
-
-                    {/* TOAST NOTIFICATION */}
-                    {toastMessage && (
-                        <div className="fixed bottom-6 right-6 z-50 glass-panel px-5 py-3 rounded-xl border border-electricBlue/40 text-electricBlue shadow-2xl flex items-center space-x-3 animate-bounce">
-                            <i className="fa-solid fa-circle-check text-lg"></i>
-                            <span className="font-medium text-sm text-white">{toastMessage}</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-500 flex items-center justify-center border border-brand-500/30">
+                            <i data-lucide="globe" class="w-6 h-6"></i>
                         </div>
-                    )}
+                        <h3 class="text-xl font-bold text-white">Modern Business Websites</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Custom, fast-loading, responsive landing pages and multi-page web applications designed to convert visitors into active clients.
+                        </p>
+                    </div>
+                    <ul class="mt-6 pt-6 border-t border-slate-800 space-y-2 text-xs font-mono text-slate-300">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-emerald"></i> Fully Responsive Design</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-emerald"></i> SEO Optimized & Lightweight</li>
+                    </ul>
+                </div>
 
-                    {/* NAVIGATION BAR */}
-                    <nav className="fixed top-0 left-0 w-full z-40 glass-panel border-b border-white/5 px-4 lg:px-12 py-4 flex items-center justify-between">
-                        <a href="#home" className="flex items-center space-x-3 group">
-                            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyanAccent to-purpleAccent flex items-center justify-center font-display font-bold text-lg text-white shadow-lg group-hover:scale-105 transition-transform">
-                                WC
-                            </div>
-                            <div className="flex flex-col">
-                                <span className="font-display font-bold text-white text-base tracking-wide leading-tight group-hover:text-electricBlue transition-colors">
-                                    Wrishikesh Chowdhury
-                                </span>
-                                <span className="text-[11px] text-slate-400">Web & Android Developer</span>
-                            </div>
-                        </a>
-
-                        {/* Desktop Links */}
-                        <div className="hidden lg:flex items-center space-x-8 text-sm font-medium text-slate-300">
-                            <a href="#home" className="hover:text-electricBlue transition-colors">Home</a>
-                            <a href="#about" className="hover:text-electricBlue transition-colors">About</a>
-                            <a href="#services" className="hover:text-electricBlue transition-colors">Services</a>
-                            <a href="#projects" className="hover:text-electricBlue transition-colors">Projects</a>
-                            <a href="#clients" className="hover:text-electricBlue transition-colors">Clients</a>
-                            <a href="#reviews" className="hover:text-electricBlue transition-colors">Reviews</a>
-                            <a href="#process" className="hover:text-electricBlue transition-colors">Process</a>
-                            <a href="#contact" className="hover:text-electricBlue transition-colors">Contact</a>
+                <!-- Service 2 -->
+                <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-emerald/20 text-brand-emerald flex items-center justify-center border border-brand-emerald/30">
+                            <i data-lucide="smartphone" class="w-6 h-6"></i>
                         </div>
+                        <h3 class="text-xl font-bold text-white">Flutter Android Apps</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Cross-platform mobile apps built with Flutter for smooth performance, beautiful animations, and seamless user experiences on Android.
+                        </p>
+                    </div>
+                    <ul class="mt-6 pt-6 border-t border-slate-800 space-y-2 text-xs font-mono text-slate-300">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-emerald"></i> High Performance Dart Code</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-emerald"></i> Clean Architecture & State Mgmt</li>
+                    </ul>
+                </div>
 
-                        <div className="hidden lg:flex items-center space-x-4">
-                            <button 
-                                onClick={() => setIsAdminOpen(true)}
-                                className="px-3.5 py-2 text-xs font-semibold rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition"
-                            >
-                                <i className="fa-solid fa-user-gear mr-2 text-electricBlue"></i>
-                                {isLoggedIn ? 'Admin Panel' : 'CMS Login'}
-                            </button>
-                            <a 
-                                href="#contact" 
-                                className="px-5 py-2.5 rounded-lg font-semibold text-xs text-darkBg bg-electricBlue hover:bg-cyan-300 shadow-lg shadow-electricBlue/20 transition-all transform hover:-translate-y-0.5"
-                            >
-                                Start a Project
+                <!-- Service 3 -->
+                <div class="glass-card glass-card-hover rounded-2xl p-8 flex flex-col justify-between md:col-span-2 lg:col-span-1">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-purple/20 text-brand-purple flex items-center justify-center border border-brand-purple/30">
+                            <i data-lucide="palette" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Glassmorphism UI/UX</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Contemporary visual architecture featuring sleek gradients, translucent elements, interactive micro-animations, and premium branding.
+                        </p>
+                    </div>
+                    <ul class="mt-6 pt-6 border-t border-slate-800 space-y-2 text-xs font-mono text-slate-300">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-emerald"></i> Modern Dark / Light Aesthetics</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-emerald"></i> WhatsApp Direct Lead Capture</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+                <div>
+                    <h2 class="text-xs font-mono tracking-widest text-brand-cyan uppercase">Portfolio</h2>
+                    <p class="text-3xl sm:text-4xl font-bold text-white mt-1">Featured Recent Work</p>
+                </div>
+                <p class="text-slate-400 text-sm max-w-md">
+                    Explore real-world business websites created for healthcare, home products, healthcare cosmetics, and home furnishings.
+                </p>
+            </div>
+
+            <!-- Bento Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Project 1: Jalpaiguri Dental Clinic -->
+                <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col group">
+                    <div class="relative h-56 overflow-hidden bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" 
+                             alt="Jalpaiguri Dental Clinic Preview" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                             onerror="this.src='https://placehold.co/800x400/0f172a/6366f1?text=Jalpaiguri+Dental+Clinic'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-slate-950/80 text-brand-cyan border border-brand-cyan/30 text-xs font-mono font-medium">
+                            Healthcare Website
+                        </span>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-brand-cyan transition-colors">Jalpaiguri Dental Clinic</h3>
+                            <p class="text-slate-400 text-sm">
+                                Professional dental practice clinic portal in Maynaguri showcasing treatments, online appointment inquiry, and clinic timings.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                            <div class="flex gap-2 text-xs font-mono text-slate-400">
+                                <span class="px-2 py-1 rounded bg-slate-800">Responsive</span>
+                                <span class="px-2 py-1 rounded bg-slate-800">Healthcare</span>
+                            </div>
+                            <a href="http://www.jalpaiguridentalclinic.com" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-cyan hover:underline">
+                                Visit Site <i data-lucide="external-link" class="w-4 h-4"></i>
                             </a>
                         </div>
-
-                        {/* Mobile Hamburger */}
-                        <button 
-                            className="lg:hidden text-slate-300 hover:text-white p-2"
-                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        >
-                            <i className={`fa-solid ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars'} text-xl`}></i>
-                        </button>
-                    </nav>
-
-                    {/* Mobile Menu Dropdown */}
-                    {mobileMenuOpen && (
-                        <div className="fixed inset-x-0 top-[70px] z-30 glass-panel border-b border-white/10 p-6 flex flex-col space-y-4 lg:hidden">
-                            <a href="#home" onClick={() => setMobileMenuOpen(false)} className="text-slate-200 hover:text-electricBlue">Home</a>
-                            <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-slate-200 hover:text-electricBlue">About</a>
-                            <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-slate-200 hover:text-electricBlue">Services</a>
-                            <a href="#projects" onClick={() => setMobileMenuOpen(false)} className="text-slate-200 hover:text-electricBlue">Projects</a>
-                            <a href="#clients" onClick={() => setMobileMenuOpen(false)} className="text-slate-200 hover:text-electricBlue">Clients</a>
-                            <a href="#reviews" onClick={() => setMobileMenuOpen(false)} className="text-slate-200 hover:text-electricBlue">Reviews</a>
-                            <a href="#process" onClick={() => setMobileMenuOpen(false)} className="text-slate-200 hover:text-electricBlue">Process</a>
-                            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-slate-200 hover:text-electricBlue">Contact</a>
-                            <div className="pt-4 border-t border-slate-800 flex flex-col gap-3">
-                                <button 
-                                    onClick={() => { setMobileMenuOpen(false); setIsAdminOpen(true); }}
-                                    className="w-full py-2.5 text-center text-xs font-semibold rounded-lg bg-slate-800 text-slate-200 border border-slate-700"
-                                >
-                                    <i className="fa-solid fa-user-gear mr-2 text-electricBlue"></i>
-                                    {isLoggedIn ? 'Admin Panel' : 'CMS Login'}
-                                </button>
-                                <a 
-                                    href="#contact" 
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="w-full py-2.5 text-center text-xs font-semibold rounded-lg bg-electricBlue text-darkBg"
-                                >
-                                    Start a Project
-                                </a>
-                            </div>
-                        </div>
-                    )}
-
-                    <section id="home" className="relative pt-36 pb-20 px-6 lg:px-12 max-w-7xl mx-auto min-h-screen flex flex-col justify-center">
-                        <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-panel border-electricBlue/30 text-xs text-electricBlue mb-8 w-fit">
-                            <span className="w-2 h-2 rounded-full bg-electricBlue animate-ping"></span>
-                            <span className="font-medium">{store.settings.availability}</span>
-                        </div>
-
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                            <div className="lg:col-span-7 space-y-6">
-                                <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-white leading-[1.1]">
-                                    {store.settings.heroHeading}
-                                </h1>
-                                <p className="text-base sm:text-lg text-slate-400 max-w-2xl leading-relaxed">
-                                    {store.settings.heroSubheading}
-                                </p>
-
-                                <div className="p-4 rounded-2xl glass-card border-white/5 flex flex-wrap items-center gap-4 text-xs font-medium text-slate-300">
-                                    <span className="text-white font-bold">{store.settings.name}</span>
-                                    <span className="text-slate-600">•</span>
-                                    <span className="text-cyanAccent">{store.settings.title}</span>
-                                    <span className="text-slate-600">•</span>
-                                    <span className="text-purpleAccent">{store.settings.role}</span>
-                                </div>
-
-                                <div className="pt-4 flex flex-wrap gap-4">
-                                    <a href="#projects" className="px-7 py-3.5 rounded-xl font-bold text-sm text-darkBg bg-electricBlue hover:bg-cyan-300 shadow-xl shadow-electricBlue/20 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
-                                        <span>View My Work</span>
-                                        <i className="fa-solid fa-arrow-down text-xs"></i>
-                                    </a>
-                                    <a href="#contact" className="px-7 py-3.5 rounded-xl font-bold text-sm text-white glass-panel hover:bg-white/10 transition-all flex items-center gap-2 border border-white/15">
-                                        <span>Let's Work Together</span>
-                                        <i className="fa-solid fa-arrow-right text-xs text-electricBlue"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            {/* Futuristic Graphic Box */}
-                            <div className="lg:col-span-5 relative">
-                                <div className="relative mx-auto w-full max-w-md aspect-square rounded-3xl p-6 glass-card border border-white/10 flex flex-col justify-between shadow-2xl overflow-hidden group">
-                                    <div className="absolute -top-24 -right-24 w-48 h-48 bg-electricBlue/20 rounded-full blur-3xl group-hover:bg-electricBlue/30 transition-all"></div>
-                                    <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-purpleAccent/20 rounded-full blur-3xl"></div>
-
-                                    <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                                        <div className="flex space-x-2">
-                                            <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                                            <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                                            <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-                                        </div>
-                                        <span className="text-[10px] font-mono text-slate-400">developer_studio.tsx</span>
-                                    </div>
-
-                                    <div className="font-mono text-xs text-slate-300 space-y-3 my-6">
-                                        <p className="text-slate-500">// Building high impact business tech</p>
-                                        <p><span className="text-purple-400">const</span> <span className="text-electricBlue">developer</span> = &#123;</p>
-                                        <p className="pl-4">name: <span className="text-emerald-400">"{store.settings.name}"</span>,</p>
-                                        <p className="pl-4">degree: <span className="text-emerald-400">"Computer Science & Eng"</span>,</p>
-                                        <p className="pl-4">focus: [<span className="text-emerald-400">"Web Apps"</span>, <span className="text-emerald-400">"Android Apps"</span>],</p>
-                                        <p className="pl-4">status: <span className="text-cyanAccent">"Building Modern Products"</span></p>
-                                        <p>&#125;;</p>
-                                    </div>
-
-                                    <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                                        <div className="flex items-center space-x-2">
-                                            <i className="fa-solid fa-code-commit text-electricBlue"></i>
-                                            <span className="text-slate-400">Clean Architecture</span>
-                                        </div>
-                                        <span className="text-emerald-400 font-mono">100% Scalable</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section id="about" className="py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-white/5">
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                            <div className="lg:col-span-6 space-y-6">
-                                <span className="text-xs font-bold uppercase tracking-widest text-electricBlue">About Wrishikesh</span>
-                                <h2 className="font-display text-3xl sm:text-4xl font-bold text-white">
-                                    Engineered Solutions For High Growth Businesses
-                                </h2>
-                                <p className="text-slate-400 leading-relaxed">
-                                    I am a Computer Science & Engineering graduate and freelance application developer who bridges the gap between software design and tangible business outcomes.
-                                </p>
-                                <p className="text-slate-400 leading-relaxed">
-                                    Whether crafting custom responsive web platforms or feature-rich Android mobile applications, my focus remains strictly on high performance, clean user interfaces, scalablity, and seamless client communication.
-                                </p>
-                                <div className="grid grid-cols-2 gap-4 pt-4">
-                                    <div className="flex items-center space-x-3 text-sm text-slate-300">
-                                        <i className="fa-solid fa-circle-check text-electricBlue"></i>
-                                        <span>Business-Focused</span>
-                                    </div>
-                                    <div className="flex items-center space-x-3 text-sm text-slate-300">
-                                        <i className="fa-solid fa-circle-check text-electricBlue"></i>
-                                        <span>Pixel-Perfect UI</span>
-                                    </div>
-                                    <div className="flex items-center space-x-3 text-sm text-slate-300">
-                                        <i className="fa-solid fa-circle-check text-electricBlue"></i>
-                                        <span>High Scalability</span>
-                                    </div>
-                                    <div className="flex items-center space-x-3 text-sm text-slate-300">
-                                        <i className="fa-solid fa-circle-check text-electricBlue"></i>
-                                        <span>Post-Launch Support</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="lg:col-span-6 grid grid-cols-2 gap-6">
-                                <div className="glass-card p-6 rounded-2xl border-white/5 text-center">
-                                    <div className="font-display text-4xl lg:text-5xl font-bold text-electricBlue mb-2">{store.settings.stats.projects}</div>
-                                    <div className="text-xs font-medium uppercase tracking-wider text-slate-400">Projects Completed</div>
-                                </div>
-                                <div className="glass-card p-6 rounded-2xl border-white/5 text-center">
-                                    <div className="font-display text-4xl lg:text-5xl font-bold text-cyanAccent mb-2">{store.settings.stats.clients}</div>
-                                    <div className="text-xs font-medium uppercase tracking-wider text-slate-400">Happy Clients</div>
-                                </div>
-                                <div className="glass-card p-6 rounded-2xl border-white/5 text-center">
-                                    <div className="font-display text-4xl lg:text-5xl font-bold text-purpleAccent mb-2">{store.settings.stats.websites}</div>
-                                    <div className="text-xs font-medium uppercase tracking-wider text-slate-400">Websites Built</div>
-                                </div>
-                                <div className="glass-card p-6 rounded-2xl border-white/5 text-center">
-                                    <div className="font-display text-4xl lg:text-5xl font-bold text-emerald-400 mb-2">{store.settings.stats.apps}</div>
-                                    <div className="text-xs font-medium uppercase tracking-wider text-slate-400">Apps Developed</div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section id="services" className="py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-white/5">
-                        <div className="text-center max-w-2xl mx-auto mb-16">
-                            <span className="text-xs font-bold uppercase tracking-widest text-electricBlue">Capabilities</span>
-                            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mt-2">Core Development Services</h2>
-                            <p className="text-slate-400 text-sm mt-3">Tailored digital solutions built to drive engagement, conversions, and operational efficiency.</p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {store.services.map(s => (
-                                <div key={s.id} className="glass-card p-8 rounded-2xl flex flex-col justify-between group">
-                                    <div>
-                                        <div className="w-14 h-14 rounded-2xl bg-electricBlue/10 text-electricBlue border border-electricBlue/20 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
-                                            <i className={`fa-solid ${s.icon}`}></i>
-                                        </div>
-                                        <h3 className="font-display text-xl font-bold text-white mb-3 group-hover:text-electricBlue transition-colors">{s.title}</h3>
-                                        <p className="text-slate-400 text-sm leading-relaxed mb-6">{s.desc}</p>
-                                    </div>
-                                    <div>
-                                        <div className="flex flex-wrap gap-2 mb-6">
-                                            {s.tech.map((t, idx) => (
-                                                <span key={idx} className="text-[11px] px-2.5 py-1 rounded-md bg-white/5 text-slate-300 border border-white/5">{t}</span>
-                                            ))}
-                                        </div>
-                                        <button 
-                                            onClick={() => setSelectedService(s)}
-                                            className="w-full py-2.5 rounded-xl border border-white/10 hover:border-electricBlue/50 text-xs font-semibold text-slate-200 hover:text-electricBlue transition-colors flex items-center justify-center gap-2"
-                                        >
-                                            <span>Learn More</span>
-                                            <i className="fa-solid fa-arrow-right text-[10px]"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-
-                    <section id="projects" className="py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-white/5">
-                        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-                            <div>
-                                <span className="text-xs font-bold uppercase tracking-widest text-electricBlue">Portfolio</span>
-                                <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mt-2">Featured Projects</h2>
-                            </div>
-
-                            {/* Filter Tabs */}
-                            <div className="flex flex-wrap gap-2 glass-panel p-1.5 rounded-xl border-white/10">
-                                {['All', 'Website', 'Android App', 'Business Web App', 'E-Commerce'].map(cat => (
-                                    <button
-                                        key={cat}
-                                        onClick={() => setActiveFilter(cat)}
-                                        className={`px-4 py-2 rounded-lg text-xs font-medium transition-all ${
-                                            activeFilter === cat 
-                                            ? 'bg-electricBlue text-darkBg font-bold shadow-md' 
-                                            : 'text-slate-400 hover:text-white'
-                                        }`}
-                                    >
-                                        {cat}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {store.projects
-                                .filter(p => p.status === 'Published')
-                                .filter(p => activeFilter === 'All' || p.category.includes(activeFilter))
-                                .map(p => (
-                                    <div key={p.id} className="glass-card rounded-2xl overflow-hidden flex flex-col group border border-white/10">
-                                        <div className="relative h-48 overflow-hidden bg-slate-900">
-                                            <img 
-                                                src={p.image} 
-                                                alt={p.title} 
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                                onError={(e) => { e.target.src = "https://placehold.co/800x600/0D111A/00F0FF?text=Project+Preview"; }}
-                                            />
-                                            {p.featured && (
-                                                <span className="absolute top-3 right-3 bg-purpleAccent text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg">
-                                                    FEATURED
-                                                </span>
-                                            )}
-                                            <span className="absolute bottom-3 left-3 bg-darkBg/80 backdrop-blur-md text-electricBlue border border-electricBlue/30 text-[10px] font-semibold px-2.5 py-1 rounded-md">
-                                                {p.category}
-                                            </span>
-                                        </div>
-
-                                        <div className="p-6 flex-1 flex flex-col justify-between">
-                                            <div>
-                                                <div className="text-xs text-slate-400 mb-1">Client: <span className="text-slate-200 font-medium">{p.client}</span></div>
-                                                <h3 className="font-display text-lg font-bold text-white mb-2 group-hover:text-electricBlue transition-colors">{p.title}</h3>
-                                                <p className="text-slate-400 text-xs line-clamp-2 leading-relaxed mb-4">{p.description}</p>
-                                                
-                                                <div className="flex flex-wrap gap-1.5 mb-6">
-                                                    {p.tech.map((t, i) => (
-                                                        <span key={i} className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">{t}</span>
-                                                    ))}
-                                                </div>
-                                            </div>
-
-                                            <div className="flex items-center gap-2 pt-4 border-t border-white/5">
-                                                <button 
-                                                    onClick={() => setSelectedProject(p)}
-                                                    className="flex-1 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-medium text-slate-200 transition text-center"
-                                                >
-                                                    View Details
-                                                </button>
-                                                {p.liveUrl && (
-                                                    <a href={p.liveUrl} target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-electricBlue/10 hover:bg-electricBlue text-electricBlue hover:text-darkBg transition" title="Live Preview">
-                                                        <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                                                    </a>
-                                                )}
-                                                {p.appUrl && (
-                                                    <a href={p.appUrl} target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-400 text-emerald-400 hover:text-darkBg transition" title="Play Store">
-                                                        <i className="fa-brands fa-google-play text-xs"></i>
-                                                    </a>
-                                                )}
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                        </div>
-                    </section>
-
-                    <section id="clients" className="py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-white/5">
-                        <div className="text-center max-w-2xl mx-auto mb-16">
-                            <span className="text-xs font-bold uppercase tracking-widest text-electricBlue">Trust</span>
-                            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mt-2">Trusted By Businesses</h2>
-                        </div>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-                            {store.clients.map(c => (
-                                <div key={c.id} className="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
-                                    <img src={c.logo} alt={c.name} className="w-16 h-16 rounded-xl object-cover mb-4 border border-white/10" onError={(e) => { e.target.src="https://placehold.co/100x100/0D111A/FFF?text=Client"; }} />
-                                    <h4 className="font-bold text-white text-base mb-1">{c.name}</h4>
-                                    <span className="text-xs text-electricBlue font-medium mb-2">{c.industry}</span>
-                                    <p className="text-slate-400 text-xs mb-4 line-clamp-2">{c.desc}</p>
-                                    <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 text-slate-300 border border-white/5 mt-auto">{c.projectsCount}</span>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* TESTIMONIALS REVIEWS */}
-                        <div id="reviews" className="pt-8">
-                            <div className="text-center max-w-2xl mx-auto mb-12">
-                                <span className="text-xs font-bold uppercase tracking-widest text-purpleAccent">Testimonials</span>
-                                <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mt-2">Client Reviews</h2>
-                            </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                {store.reviews.map(r => (
-                                    <div key={r.id} className="glass-card p-6 rounded-2xl flex flex-col justify-between border-white/5">
-                                        <div>
-                                            <div className="flex text-amber-400 text-xs mb-4 space-x-1">
-                                                {[...Array(r.rating)].map((_, i) => (
-                                                    <i key={i} className="fa-solid fa-star"></i>
-                                                ))}
-                                            </div>
-                                            <p className="text-slate-300 text-sm italic leading-relaxed mb-6">"{r.text}"</p>
-                                        </div>
-                                        <div className="flex items-center space-x-3 pt-4 border-t border-white/5">
-                                            <img src={r.photo} alt={r.clientName} className="w-10 h-10 rounded-full object-cover border border-white/10" onError={(e) => { e.target.src="https://placehold.co/100/0D111A/FFF?text=User"; }} />
-                                            <div>
-                                                <div className="font-bold text-white text-sm">{r.clientName}</div>
-                                                <div className="text-xs text-slate-400">{r.company}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </section>
-
-                    <section className="py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-white/5">
-                        <div className="text-center max-w-2xl mx-auto mb-16">
-                            <span className="text-xs font-bold uppercase tracking-widest text-electricBlue">Stack</span>
-                            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mt-2">Technologies & Tools</h2>
-                        </div>
-
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-                            {store.technologies.map((t, idx) => (
-                                <div key={idx} className="glass-card p-4 rounded-xl flex flex-col items-center justify-center text-center group">
-                                    <i className={`${t.icon} text-3xl text-slate-400 group-hover:text-electricBlue transition-colors mb-2`}></i>
-                                    <span className="font-medium text-xs text-white">{t.name}</span>
-                                    <span className="text-[10px] text-slate-500">{t.category}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-
-                    {/* WORK PROCESS SECTION */}
-                    <section id="process" className="py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-white/5">
-                        <div className="text-center max-w-2xl mx-auto mb-16">
-                            <span className="text-xs font-bold uppercase tracking-widest text-electricBlue">Workflow</span>
-                            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mt-2">6-Step Execution Process</h2>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {[
-                                { step: "01", title: "Discuss", desc: "In-depth consultation to understand your business objectives and project requirements." },
-                                { step: "02", title: "Plan", desc: "Architecting the technical roadmap, wireframes, and data flow strategy." },
-                                { step: "03", title: "Design", desc: "Crafting modern, responsive visual interfaces prioritizing intuitive user experience." },
-                                { step: "04", title: "Develop", desc: "Clean frontend and robust backend engineering adhering to scalable code standards." },
-                                { step: "05", title: "Test", desc: "Rigorous testing across mobile devices, browsers, and security benchmarks." },
-                                { step: "06", title: "Launch", desc: "Seamless deployment to server or Play Store, complete with post-launch technical support." }
-                            ].map((stepItem, i) => (
-                                <div key={i} className="glass-card p-6 rounded-2xl border-white/5 relative">
-                                    <div className="font-display font-bold text-3xl text-electricBlue/40 mb-3">{stepItem.step}</div>
-                                    <h3 className="font-bold text-white text-lg mb-2">{stepItem.title}</h3>
-                                    <p className="text-slate-400 text-xs leading-relaxed">{stepItem.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-
-                    <section id="contact" className="py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-white/5">
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                            <div className="lg:col-span-5 space-y-6">
-                                <span className="text-xs font-bold uppercase tracking-widest text-electricBlue">Get In Touch</span>
-                                <h2 className="font-display text-3xl sm:text-4xl font-bold text-white">Have a Project in Mind?</h2>
-                                <p className="text-slate-400 text-sm leading-relaxed">
-                                    Let's discuss your idea and build a modern, high-performing digital solution tailored for your business.
-                                </p>
-
-                                <div className="space-y-4 pt-4">
-                                    <a href={`mailto:${store.settings.email}`} className="flex items-center space-x-4 p-4 rounded-xl glass-card text-slate-300 hover:text-electricBlue transition">
-                                        <div className="w-10 h-10 rounded-lg bg-electricBlue/10 text-electricBlue flex items-center justify-center">
-                                            <i className="fa-solid fa-envelope"></i>
-                                        </div>
-                                        <div>
-                                            <div className="text-[10px] text-slate-400 uppercase font-bold">Email Direct</div>
-                                            <div className="text-sm font-medium">{store.settings.email}</div>
-                                        </div>
-                                    </a>
-
-                                    <a href={`https://wa.me/${store.settings.whatsapp}`} target="_blank" rel="noreferrer" className="flex items-center space-x-4 p-4 rounded-xl glass-card text-slate-300 hover:text-emerald-400 transition">
-                                        <div className="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
-                                            <i className="fa-brands fa-whatsapp"></i>
-                                        </div>
-                                        <div>
-                                            <div className="text-[10px] text-slate-400 uppercase font-bold">WhatsApp</div>
-                                            <div className="text-sm font-medium">{store.settings.phone}</div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div className="pt-6">
-                                    <div className="text-xs text-slate-400 mb-3">Connect via Social Channels:</div>
-                                    <div className="flex space-x-3">
-                                        <a href={store.settings.linkedin} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-slate-300 hover:text-electricBlue transition"><i className="fa-brands fa-linkedin-in"></i></a>
-                                        <a href={store.settings.github} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-slate-300 hover:text-electricBlue transition"><i className="fa-brands fa-github"></i></a>
-                                        <a href={store.settings.instagram} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-slate-300 hover:text-electricBlue transition"><i className="fa-brands fa-instagram"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="lg:col-span-7">
-                                <form onSubmit={handleEnquirySubmit} className="glass-card p-8 rounded-3xl border border-white/10 space-y-6">
-                                    <h3 className="font-display font-bold text-xl text-white">Send Project Enquiry</h3>
-                                    
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                        <div>
-                                            <label className="block text-xs font-semibold text-slate-300 mb-2">Your Name *</label>
-                                            <input required name="name" type="text" placeholder="John Doe" className="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-white/10 text-white text-sm focus:outline-none focus:border-electricBlue" />
-                                        </div>
-                                        <div>
-                                            <label className="block text-xs font-semibold text-slate-300 mb-2">Your Email *</label>
-                                            <input required name="email" type="email" placeholder="john@company.com" className="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-white/10 text-white text-sm focus:outline-none focus:border-electricBlue" />
-                                        </div>
-                                    </div>
-
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                        <div>
-                                            <label className="block text-xs font-semibold text-slate-300 mb-2">Phone Number</label>
-                                            <input name="phone" type="tel" placeholder="+91 98765 00000" className="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-white/10 text-white text-sm focus:outline-none focus:border-electricBlue" />
-                                        </div>
-                                        <div>
-                                            <label className="block text-xs font-semibold text-slate-300 mb-2">Business / Company Name</label>
-                                            <input name="business" type="text" placeholder="Acme Studios" className="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-white/10 text-white text-sm focus:outline-none focus:border-electricBlue" />
-                                        </div>
-                                    </div>
-
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                        <div>
-                                            <label className="block text-xs font-semibold text-slate-300 mb-2">Project Type</label>
-                                            <select name="projectType" className="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-white/10 text-white text-sm focus:outline-none focus:border-electricBlue">
-                                                <option>Custom Website</option>
-                                                <option>Android App Development</option>
-                                                <option>E-Commerce Store</option>
-                                                <option>Business Web Application</option>
-                                                <option>UI/UX Implementation</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label className="block text-xs font-semibold text-slate-300 mb-2">Budget (in ₹ Rupees)</label>
-                                            <div className="relative">
-                                                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-electricBlue font-bold text-sm">₹</span>
-                                                <input 
-                                                    type="number" 
-                                                    name="budgetValue"
-                                                    value={customBudgetValue}
-                                                    onChange={(e) => setCustomBudgetValue(e.target.value)}
-                                                    placeholder="e.g. 50000" 
-                                                    min="1000"
-                                                    step="1000"
-                                                    className="w-full pl-8 pr-4 py-3 rounded-xl bg-slate-900/80 border border-white/10 text-white text-sm focus:outline-none focus:border-electricBlue" 
-                                                />
-                                            </div>
-                                            {customBudgetValue && (
-                                                <span className="text-[11px] text-electricBlue mt-1 block">
-                                                    Target Budget: ₹{Number(customBudgetValue).toLocaleString('en-IN')}
-                                                </span>
-                                            )}
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label className="block text-xs font-semibold text-slate-300 mb-2">Project Details *</label>
-                                        <textarea required name="message" rows="4" placeholder="Describe your business goals, required features, and timeline..." className="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-white/10 text-white text-sm focus:outline-none focus:border-electricBlue"></textarea>
-                                    </div>
-
-                                    <button type="submit" className="w-full py-3.5 rounded-xl bg-electricBlue hover:bg-cyan-300 text-darkBg font-bold text-sm shadow-lg shadow-electricBlue/20 transition">
-                                        Send Project Enquiry
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* FOOTER */}
-                    <footer className="py-8 border-t border-white/5 text-center text-xs text-slate-500">
-                        <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                            <div>© {new Date().getFullYear()} Wrishikesh Chowdhury. All rights reserved.</div>
-                            <div className="flex space-x-6 text-slate-400">
-                                <a href="#home" className="hover:text-electricBlue">Home</a>
-                                <a href="#projects" className="hover:text-electricBlue">Projects</a>
-                                <a href="#contact" className="hover:text-electricBlue">Contact</a>
-                            </div>
-                        </div>
-                    </footer>
-
-                    {/* PROJECT DETAIL MODAL */}
-                    {selectedProject && (
-                        <div className="fixed inset-0 z-50 glass-panel bg-black/80 flex items-center justify-center p-4 overflow-y-auto">
-                            <div className="glass-card max-w-2xl w-full rounded-3xl border border-white/15 p-6 md:p-8 relative my-8 text-slate-200">
-                                <button 
-                                    onClick={() => setSelectedProject(null)}
-                                    className="absolute top-6 right-6 text-slate-400 hover:text-white p-2"
-                                >
-                                    <i className="fa-solid fa-xmark text-xl"></i>
-                                </button>
-
-                                <div className="h-64 rounded-2xl overflow-hidden mb-6 bg-slate-900">
-                                    <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
-                                </div>
-
-                                <div className="flex items-center space-x-2 text-xs text-electricBlue font-semibold mb-2">
-                                    <span>{selectedProject.category}</span>
-                                    <span>•</span>
-                                    <span className="text-slate-400">Client: {selectedProject.client}</span>
-                                </div>
-
-                                <h2 className="font-display text-2xl font-bold text-white mb-4">{selectedProject.title}</h2>
-
-                                <div className="space-y-4 text-xs text-slate-300 leading-relaxed mb-6">
-                                    <div>
-                                        <h4 className="font-bold text-white text-sm mb-1">Challenge</h4>
-                                        <p>{selectedProject.challenge || selectedProject.description}</p>
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-white text-sm mb-1">Solution</h4>
-                                        <p>{selectedProject.solution || selectedProject.description}</p>
-                                    </div>
-                                    {selectedProject.outcome && (
-                                        <div>
-                                            <h4 className="font-bold text-emerald-400 text-sm mb-1">Outcome</h4>
-                                            <p>{selectedProject.outcome}</p>
-                                        </div>
-                                    )}
-                                </div>
-
-                                <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-4">
-                                    <div className="flex flex-wrap gap-1">
-                                        {selectedProject.tech.map((t, i) => (
-                                            <span key={i} className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-slate-300">{t}</span>
-                                        ))}
-                                    </div>
-
-                                    <div className="flex space-x-3">
-                                        {selectedProject.liveUrl && (
-                                            <a href={selectedProject.liveUrl} target="_blank" rel="noreferrer" className="px-4 py-2 rounded-xl bg-electricBlue text-darkBg text-xs font-bold hover:bg-cyan-300 transition">
-                                                Live Site
-                                            </a>
-                                        )}
-                                        {selectedProject.appUrl && (
-                                            <a href={selectedProject.appUrl} target="_blank" rel="noreferrer" className="px-4 py-2 rounded-xl bg-emerald-500 text-darkBg text-xs font-bold hover:bg-emerald-400 transition">
-                                                Play Store
-                                            </a>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-
-                    {/* SERVICE DETAIL MODAL */}
-                    {selectedService && (
-                        <div className="fixed inset-0 z-50 glass-panel bg-black/80 flex items-center justify-center p-4">
-                            <div className="glass-card max-w-lg w-full rounded-3xl border border-white/15 p-8 relative text-slate-200">
-                                <button onClick={() => setSelectedService(null)} className="absolute top-6 right-6 text-slate-400 hover:text-white">
-                                    <i className="fa-solid fa-xmark text-xl"></i>
-                                </button>
-                                <div className="w-12 h-12 rounded-2xl bg-electricBlue/10 text-electricBlue flex items-center justify-center text-xl mb-4">
-                                    <i className={`fa-solid ${selectedService.icon}`}></i>
-                                </div>
-                                <h3 className="font-display font-bold text-2xl text-white mb-3">{selectedService.title}</h3>
-                                <p className="text-slate-300 text-sm leading-relaxed mb-6">{selectedService.desc}</p>
-                                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Technologies Employed</h4>
-                                <div className="flex flex-wrap gap-2 mb-8">
-                                    {selectedService.tech.map((t, i) => (
-                                        <span key={i} className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-electricBlue">{t}</span>
-                                    ))}
-                                </div>
-                                <a href="#contact" onClick={() => setSelectedService(null)} className="block w-full py-3 text-center rounded-xl bg-electricBlue text-darkBg font-bold text-xs hover:bg-cyan-300 transition">
-                                    Inquire About This Service
-                                </a>
-                            </div>
-                        </div>
-                    )}
-
-                    {isAdminOpen && (
-                        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 overflow-y-auto">
-                            {!isLoggedIn ? (
-                                /* LOGIN FORM */
-                                <div className="glass-card max-w-md w-full p-8 rounded-3xl border border-white/15 text-center relative">
-                                    <button onClick={() => setIsAdminOpen(false)} className="absolute top-6 right-6 text-slate-400 hover:text-white">
-                                        <i className="fa-solid fa-xmark text-lg"></i>
-                                    </button>
-                                    
-                                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-electricBlue to-purpleAccent text-white flex items-center justify-center mx-auto text-xl font-bold mb-4">
-                                        WC
-                                    </div>
-                                    <h3 className="font-display text-2xl font-bold text-white mb-1">Portfolio CMS Login</h3>
-                                    <p className="text-xs text-slate-400 mb-6">Enter admin credentials to manage portfolio contents.</p>
-
-                                    <form onSubmit={(e) => {
-                                        e.preventDefault();
-                                        const email = e.target.email.value;
-                                        const password = e.target.password.value;
-                                        if(email === "admin@wrishikesh.dev" && password === "admin128") {
-                                            setIsLoggedIn(true);
-                                            showToast("✓ Authenticated as Admin!");
-                                        } else {
-                                            showToast("✕ Invalid credentials!");
-                                        }
-                                    }} className="space-y-4 text-left">
-                                        <div>
-                                            <label className="block text-xs text-slate-300 font-semibold mb-1">Email</label>
-                                            <input required name="email" type="email" defaultValue="admin@wrishikesh.dev" className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-white/10 text-white text-xs focus:outline-none focus:border-electricBlue" />
-                                        </div>
-                                        <div>
-                                            <label className="block text-xs text-slate-300 font-semibold mb-1">Password</label>
-                                            <input required name="password" type="password" defaultValue="admin128" className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-white/10 text-white text-xs focus:outline-none focus:border-electricBlue" />
-                                        </div>
-                                        <button type="submit" className="w-full py-3 rounded-xl bg-electricBlue text-darkBg font-bold text-xs hover:bg-cyan-300 transition">
-                                            Access CMS
-                                        </button>
-                                    </form>
-                                </div>
-                            ) : (
-                                /* DASHBOARD INTERFACE */
-                                <div className="glass-card w-full max-w-6xl rounded-3xl border border-white/15 overflow-hidden flex flex-col max-h-[90vh]">
-                                    {/* Dashboard Header */}
-                                    <div className="p-6 border-b border-white/10 flex flex-wrap items-center justify-between gap-4 bg-slate-900/60">
-                                        <div className="flex items-center space-x-3">
-                                            <span className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
-                                            <h3 className="font-display font-bold text-lg text-white">Wrishikesh Studio CMS</h3>
-                                        </div>
-                                        
-                                        <div className="flex items-center space-x-4">
-                                            <span className="text-xs text-slate-400 hidden sm:inline">LoggedIn: <strong className="text-electricBlue">admin@wrishikesh.dev</strong></span>
-                                            <button onClick={() => setIsLoggedIn(false)} className="px-3 py-1.5 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white text-xs font-semibold transition">
-                                                Logout
-                                            </button>
-                                            <button onClick={() => setIsAdminOpen(false)} className="text-slate-400 hover:text-white p-2">
-                                                <i className="fa-solid fa-xmark text-lg"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                    {/* Dashboard Body Grid */}
-                                    <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
-                                        {/* CMS Sidebar Tabs */}
-                                        <div className="w-full md:w-56 border-r border-white/10 p-4 space-y-1 bg-slate-950/40 text-xs font-medium overflow-y-auto">
-                                            {[
-                                                { id: 'overview', label: 'Overview Metrics', icon: 'fa-chart-pie' },
-                                                { id: 'projects', label: 'Projects Manager', icon: 'fa-layer-group' },
-                                                { id: 'enquiries', label: `Enquiries (${store.enquiries.filter(e => e.status==='New').length})`, icon: 'fa-inbox' },
-                                                { id: 'clients', label: 'Clients & Brands', icon: 'fa-building' },
-                                                { id: 'reviews', label: 'Client Reviews', icon: 'fa-star' },
-                                                { id: 'settings', label: 'Website Settings', icon: 'fa-sliders' }
-                                            ].map(tab => (
-                                                <button
-                                                    key={tab.id}
-                                                    onClick={() => setAdminTab(tab.id)}
-                                                    className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl transition ${
-                                                        adminTab === tab.id ? 'bg-electricBlue text-darkBg font-bold' : 'text-slate-300 hover:bg-white/5'
-                                                    }`}
-                                                >
-                                                    <i className={`fa-solid ${tab.icon}`}></i>
-                                                    <span>{tab.label}</span>
-                                                </button>
-                                            ))}
-                                        </div>
-
-                                        {/* CMS Tab Content */}
-                                        <div className="flex-1 p-6 overflow-y-auto bg-slate-900/40 text-xs text-slate-200">
-                                            {/* OVERVIEW TAB */}
-                                            {adminTab === 'overview' && (
-                                                <div className="space-y-6">
-                                                    <h4 className="font-display font-bold text-lg text-white">System KPI Summary</h4>
-                                                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                                                        <div className="glass-card p-4 rounded-xl border-white/5">
-                                                            <div className="text-slate-400">Total Projects</div>
-                                                            <div className="text-2xl font-bold text-electricBlue mt-1">{store.projects.length}</div>
-                                                        </div>
-                                                        <div className="glass-card p-4 rounded-xl border-white/5">
-                                                            <div className="text-slate-400">Total Clients</div>
-                                                            <div className="text-2xl font-bold text-cyanAccent mt-1">{store.clients.length}</div>
-                                                        </div>
-                                                        <div className="glass-card p-4 rounded-xl border-white/5">
-                                                            <div className="text-slate-400">Published Reviews</div>
-                                                            <div className="text-2xl font-bold text-purpleAccent mt-1">{store.reviews.length}</div>
-                                                        </div>
-                                                        <div className="glass-card p-4 rounded-xl border-white/5">
-                                                            <div className="text-slate-400">Pending Enquiries</div>
-                                                            <div className="text-2xl font-bold text-amber-400 mt-1">{store.enquiries.filter(e => e.status==='New').length}</div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="p-4 rounded-2xl glass-card border-white/10 space-y-3">
-                                                        <h5 className="font-bold text-white text-sm">Quick Actions</h5>
-                                                        <div className="flex flex-wrap gap-3">
-                                                            <button onClick={() => setAdminTab('projects')} className="px-4 py-2 rounded-lg bg-electricBlue/10 text-electricBlue border border-electricBlue/20 font-medium hover:bg-electricBlue hover:text-darkBg transition">
-                                                                + Add New Project
-                                                            </button>
-                                                            <button onClick={() => setAdminTab('enquiries')} className="px-4 py-2 rounded-lg bg-purpleAccent/10 text-purpleAccent border border-purpleAccent/20 font-medium hover:bg-purpleAccent hover:text-white transition">
-                                                                View Project Messages
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            )}
-
-                                            {/* PROJECTS MANAGER TAB */}
-                                            {adminTab === 'projects' && (
-                                                <div className="space-y-6">
-                                                    <div className="flex justify-between items-center">
-                                                        <h4 className="font-display font-bold text-lg text-white">Projects Management</h4>
-                                                        <button 
-                                                            onClick={() => {
-                                                                const newProj = {
-                                                                    id: Date.now(),
-                                                                    title: "New Client Project",
-                                                                    client: "New Business Ltd.",
-                                                                    category: "Website",
-                                                                    description: "Custom digital project description.",
-                                                                    challenge: "Initial requirements definition.",
-                                                                    solution: "Scalable tech implementation.",
-                                                                    outcome: "High performance delivery.",
-                                                                    tech: ["React", "Tailwind"],
-                                                                    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-                                                                    featured: false,
-                                                                    status: "Published",
-                                                                    liveUrl: "https://example.com",
-                                                                    appUrl: ""
-                                                                };
-                                                                setStore(prev => ({ ...prev, projects: [newProj, ...prev.projects] }));
-                                                                showToast("✓ New project created! Edit fields below.");
-                                                            }}
-                                                            className="px-3.5 py-2 rounded-lg bg-electricBlue text-darkBg font-bold"
-                                                        >
-                                                            + Add Project
-                                                        </button>
-                                                    </div>
-
-                                                    <div className="space-y-4">
-                                                        {store.projects.map(p => (
-                                                            <div key={p.id} className="p-4 rounded-xl glass-card border-white/10 space-y-3">
-                                                                <div className="flex items-center justify-between">
-                                                                    <input 
-                                                                        type="text" 
-                                                                        value={p.title} 
-                                                                        onChange={(e) => {
-                                                                            const updated = store.projects.map(item => item.id === p.id ? { ...item, title: e.target.value } : item);
-                                                                            setStore(prev => ({ ...prev, projects: updated }));
-                                                                        }}
-                                                                        className="font-bold text-sm bg-transparent text-white border-b border-transparent focus:border-electricBlue focus:outline-none"
-                                                                    />
-                                                                    <div className="flex items-center space-x-2">
-                                                                        <button 
-                                                                            onClick={() => {
-                                                                                const updated = store.projects.map(item => item.id === p.id ? { ...item, featured: !item.featured } : item);
-                                                                                setStore(prev => ({ ...prev, projects: updated }));
-                                                                            }}
-                                                                            className={`px-2 py-1 rounded text-[10px] font-bold ${p.featured ? 'bg-purpleAccent text-white' : 'bg-white/5 text-slate-400'}`}
-                                                                        >
-                                                                            {p.featured ? 'Featured' : 'Mark Featured'}
-                                                                        </button>
-                                                                        <button 
-                                                                            onClick={() => {
-                                                                                setStore(prev => ({ ...prev, projects: prev.projects.filter(item => item.id !== p.id) }));
-                                                                                showToast("Deleted Project");
-                                                                            }}
-                                                                            className="text-red-400 hover:text-red-300 p-1"
-                                                                        >
-                                                                            <i className="fa-solid fa-trash"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                                                                    <input 
-                                                                        type="text" value={p.client} placeholder="Client"
-                                                                        onChange={(e) => {
-                                                                            const updated = store.projects.map(item => item.id === p.id ? { ...item, client: e.target.value } : item);
-                                                                            setStore(prev => ({ ...prev, projects: updated }));
-                                                                        }}
-                                                                        className="px-3 py-1.5 rounded bg-slate-900 border border-white/5 text-slate-200"
-                                                                    />
-                                                                    <select 
-                                                                        value={p.category}
-                                                                        onChange={(e) => {
-                                                                            const updated = store.projects.map(item => item.id === p.id ? { ...item, category: e.target.value } : item);
-                                                                            setStore(prev => ({ ...prev, projects: updated }));
-                                                                        }}
-                                                                        className="px-3 py-1.5 rounded bg-slate-900 border border-white/5 text-slate-200"
-                                                                    >
-                                                                        <option>Website</option>
-                                                                        <option>Android App</option>
-                                                                        <option>Business Web App</option>
-                                                                        <option>E-Commerce</option>
-                                                                    </select>
-                                                                    <input 
-                                                                        type="text" value={p.image} placeholder="Image URL"
-                                                                        onChange={(e) => {
-                                                                            const updated = store.projects.map(item => item.id === p.id ? { ...item, image: e.target.value } : item);
-                                                                            setStore(prev => ({ ...prev, projects: updated }));
-                                                                        }}
-                                                                        className="px-3 py-1.5 rounded bg-slate-900 border border-white/5 text-slate-200"
-                                                                    />
-                                                                </div>
-
-                                                                <textarea 
-                                                                    value={p.description} placeholder="Short Description"
-                                                                    onChange={(e) => {
-                                                                        const updated = store.projects.map(item => item.id === p.id ? { ...item, description: e.target.value } : item);
-                                                                        setStore(prev => ({ ...prev, projects: updated }));
-                                                                    }}
-                                                                    className="w-full px-3 py-1.5 rounded bg-slate-900 border border-white/5 text-slate-200"
-                                                                />
-                                                            </div>
-                                                        ))}
-                                                    </div>
-                                                </div>
-                                            )}
-
-                                            {/* ENQUIRIES TAB */}
-                                            {adminTab === 'enquiries' && (
-                                                <div className="space-y-4">
-                                                    <h4 className="font-display font-bold text-lg text-white">Project Enquiries Inbox</h4>
-                                                    {store.enquiries.map(enq => (
-                                                        <div key={enq.id} className="p-4 rounded-xl glass-card border-white/10 space-y-2">
-                                                            <div className="flex justify-between items-center text-xs">
-                                                                <span className="font-bold text-white text-sm">{enq.name} ({enq.business || 'Individual'})</span>
-                                                                <span className="text-slate-400">{enq.date}</span>
-                                                            </div>
-                                                            <div className="text-slate-300">
-                                                                <span className="text-electricBlue font-medium">{enq.email}</span> • <span>{enq.phone}</span>
-                                                            </div>
-                                                            <div className="text-slate-400 pt-1 border-t border-white/5">
-                                                                <p className="italic">"{enq.message}"</p>
-                                                            </div>
-                                                            <div className="flex justify-between items-center pt-2">
-                                                                <span className="text-[10px] px-2.5 py-1 rounded bg-electricBlue/10 text-electricBlue border border-electricBlue/20 font-bold">
-                                                                    Type: {enq.projectType} • Budget: {enq.budget}
-                                                                </span>
-                                                                <button 
-                                                                    onClick={() => {
-                                                                        setStore(prev => ({ ...prev, enquiries: prev.enquiries.filter(item => item.id !== enq.id) }));
-                                                                        showToast("Enquiry Deleted");
-                                                                    }}
-                                                                    className="text-red-400 hover:text-red-300 text-xs"
-                                                                >
-                                                                    Delete
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
-
-                                            {/* CLIENTS TAB */}
-                                            {adminTab === 'clients' && (
-                                                <div className="space-y-4">
-                                                    <h4 className="font-display font-bold text-lg text-white">Client Roster</h4>
-                                                    {store.clients.map(c => (
-                                                        <div key={c.id} className="p-3 rounded-xl glass-card border-white/10 flex items-center justify-between gap-3">
-                                                            <input 
-                                                                type="text" value={c.name} 
-                                                                onChange={(e) => {
-                                                                    const updated = store.clients.map(item => item.id === c.id ? { ...item, name: e.target.value } : item);
-                                                                    setStore(prev => ({ ...prev, clients: updated }));
-                                                                }}
-                                                                className="font-bold text-white bg-slate-900 px-3 py-1 rounded border border-white/5"
-                                                            />
-                                                            <input 
-                                                                type="text" value={c.industry} 
-                                                                onChange={(e) => {
-                                                                    const updated = store.clients.map(item => item.id === c.id ? { ...item, industry: e.target.value } : item);
-                                                                    setStore(prev => ({ ...prev, clients: updated }));
-                                                                }}
-                                                                className="text-slate-300 bg-slate-900 px-3 py-1 rounded border border-white/5"
-                                                            />
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
-
-                                            {/* REVIEWS TAB */}
-                                            {adminTab === 'reviews' && (
-                                                <div className="space-y-4">
-                                                    <h4 className="font-display font-bold text-lg text-white">Client Reviews Management</h4>
-                                                    {store.reviews.map(r => (
-                                                        <div key={r.id} className="p-4 rounded-xl glass-card border-white/10 space-y-2">
-                                                            <div className="flex justify-between">
-                                                                <span className="font-bold text-white">{r.clientName} ({r.company})</span>
-                                                                <span className="text-amber-400">★ {r.rating}</span>
-                                                            </div>
-                                                            <textarea 
-                                                                value={r.text}
-                                                                onChange={(e) => {
-                                                                    const updated = store.reviews.map(item => item.id === r.id ? { ...item, text: e.target.value } : item);
-                                                                    setStore(prev => ({ ...prev, reviews: updated }));
-                                                                }}
-                                                                className="w-full bg-slate-900 p-2 rounded text-slate-300 border border-white/5"
-                                                            />
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
-
-                                            {/* SETTINGS TAB */}
-                                            {adminTab === 'settings' && (
-                                                <div className="space-y-4">
-                                                    <h4 className="font-display font-bold text-lg text-white">Portfolio Global Settings</h4>
-                                                    
-                                                    <div>
-                                                        <label className="block text-slate-400 mb-1">Hero Heading</label>
-                                                        <input 
-                                                            type="text" 
-                                                            value={store.settings.heroHeading} 
-                                                            onChange={(e) => setStore(prev => ({ ...prev, settings: { ...prev.settings, heroHeading: e.target.value } }))}
-                                                            className="w-full p-2 rounded bg-slate-900 text-white border border-white/10"
-                                                        />
-                                                    </div>
-
-                                                    <div>
-                                                        <label className="block text-slate-400 mb-1">Hero Subheading</label>
-                                                        <textarea 
-                                                            value={store.settings.heroSubheading} 
-                                                            onChange={(e) => setStore(prev => ({ ...prev, settings: { ...prev.settings, heroSubheading: e.target.value } }))}
-                                                            className="w-full p-2 rounded bg-slate-900 text-white border border-white/10"
-                                                        />
-                                                    </div>
-
-                                                    <div className="grid grid-cols-2 gap-4">
-                                                        <div>
-                                                            <label className="block text-slate-400 mb-1">Email</label>
-                                                            <input 
-                                                                type="text" 
-                                                                value={store.settings.email} 
-                                                                onChange={(e) => setStore(prev => ({ ...prev, settings: { ...prev.settings, email: e.target.value } }))}
-                                                                className="w-full p-2 rounded bg-slate-900 text-white border border-white/10"
-                                                            />
-                                                        </div>
-                                                        <div>
-                                                            <label className="block text-slate-400 mb-1">Availability Badge</label>
-                                                            <input 
-                                                                type="text" 
-                                                                value={store.settings.availability} 
-                                                                onChange={(e) => setStore(prev => ({ ...prev, settings: { ...prev.settings, availability: e.target.value } }))}
-                                                                className="w-full p-2 rounded bg-slate-900 text-white border border-white/10"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    )}
+                    </div>
                 </div>
-            );
-        };
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
+                <!-- Project 2: Dawn Zero Home Cleaning -->
+                <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col group">
+                    <div class="relative h-56 overflow-hidden bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80" 
+                             alt="Dawn Zero Home Cleaning" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                             onerror="this.src='https://placehold.co/800x400/0f172a/a855f7?text=Dawn+Zero+Cleaning'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-slate-950/80 text-brand-purple border border-brand-purple/30 text-xs font-mono font-medium">
+                            Product Showcase
+                        </span>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-brand-purple transition-colors">Dawn Zero</h3>
+                            <p class="text-slate-400 text-sm">
+                                Sleek product landing website for Dawn Zero premium home cleaning products with product feature highlights.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                            <div class="flex gap-2 text-xs font-mono text-slate-400">
+                                <span class="px-2 py-1 rounded bg-slate-800">Modern Design</span>
+                                <span class="px-2 py-1 rounded bg-slate-800">Cleaning Tech</span>
+                            </div>
+                            <a href="https://ubiquitous-salamander-1787c7.netlify.app/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-purple hover:underline">
+                                Visit Site <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: BioAyush Herbal -->
+                <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col group">
+                    <div class="relative h-56 overflow-hidden bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" 
+                             alt="BioAyush Herbal Products" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                             onerror="this.src='https://placehold.co/800x400/0f172a/10b981?text=BioAyush+Herbal'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-slate-950/80 text-brand-emerald border border-brand-emerald/30 text-xs font-mono font-medium">
+                            Ayurvedic E-Commerce UI
+                        </span>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-brand-emerald transition-colors">BioAyush Products</h3>
+                            <p class="text-slate-400 text-sm">
+                                Premium herbal and Ayurvedic wellness product display platform with dynamic design and smooth navigation.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                            <div class="flex gap-2 text-xs font-mono text-slate-400">
+                                <span class="px-2 py-1 rounded bg-slate-800">Herbal Brand</span>
+                                <span class="px-2 py-1 rounded bg-slate-800">Catalogue</span>
+                            </div>
+                            <a href="https://comfy-truffle-a7ca24.netlify.app/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-emerald hover:underline">
+                                Visit Site <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Siya Decor -->
+                <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col group">
+                    <div class="relative h-56 overflow-hidden bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" 
+                             alt="Siya Decor Furniture Shop" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                             onerror="this.src='https://placehold.co/800x400/0f172a/6366f1?text=Siya+Decor+Siliguri'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-slate-950/80 text-amber-400 border border-amber-400/30 text-xs font-mono font-medium">
+                            Furniture & Interiors
+                        </span>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <h3 class="text-2xl font-bold text-white group-hover:text-amber-400 transition-colors">Siya Decor Siliguri</h3>
+                            <p class="text-slate-400 text-sm">
+                                Complete furniture and interior decor showcase site for Siliguri-based showroom with catalog browser.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                            <div class="flex gap-2 text-xs font-mono text-slate-400">
+                                <span class="px-2 py-1 rounded bg-slate-800">Interior Decor</span>
+                                <span class="px-2 py-1 rounded bg-slate-800">Catalog</span>
+                            </div>
+                            <a href="https://wrishi1.github.io/siya/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-400 hover:underline">
+                                Visit Site <i data-lucide="external-link" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- About & Direct Contact -->
+        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden border border-slate-800">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <div class="inline-flex items-center gap-2 text-brand-cyan font-mono text-xs uppercase tracking-widest">
+                            <i data-lucide="terminal" class="w-4 h-4"></i> About Wrishi Tech Studio
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white leading-tight">
+                            Building Pixel-Perfect Web Platforms & Mobile Apps
+                        </h2>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Hello! I am Wrishikesh Chowdhury, the developer behind **Wrishi Tech Studio**. I specialize in creating modern, ultra-responsive websites for local and international businesses alongside high-performance mobile apps built with **Flutter**.
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <a href="mailto:wrishikeshchowdhury@gmail.com" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 text-xs font-mono transition-colors">
+                                <i data-lucide="mail" class="w-4 h-4 text-brand-cyan"></i> wrishikeshchowdhury@gmail.com
+                            </a>
+                            <a href="https://wa.me/917602921338" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 text-xs font-mono transition-colors">
+                                <i data-lucide="phone" class="w-4 h-4 text-brand-emerald"></i> +91 7602921338
+                            </a>
+                            <a href="https://www.linkedin.com/in/wrishikesh-chowdhury-103000260" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 text-xs font-mono transition-colors">
+                                <i data-lucide="linkedin" class="w-4 h-4 text-blue-400"></i> LinkedIn Profile
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- CTA Box -->
+                    <div class="glass-card rounded-2xl p-6 sm:p-8 border border-brand-500/30 text-center space-y-6 bg-slate-950/50">
+                        <div class="w-16 h-16 rounded-full bg-brand-500/20 text-brand-500 flex items-center justify-center mx-auto border border-brand-500/40">
+                            <i data-lucide="zap" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Have a Project in Mind?</h3>
+                        <p class="text-slate-400 text-sm">
+                            Get a quick quote directly sent to my WhatsApp for instant consultation on website or app development.
+                        </p>
+                        <button onclick="openModal()" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-500 to-brand-cyan hover:from-brand-600 hover:to-brand-cyan text-white font-semibold flex items-center justify-center gap-2 transition-all">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            Start Discussion Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-nav mt-20 border-t border-slate-800 py-10 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-brand-500/20 text-brand-500 flex items-center justify-center font-bold">W</div>
+                <span class="text-sm font-semibold text-slate-300">Wrishi Tech Studio</span>
+            </div>
+            <p class="text-xs text-slate-500 font-mono">
+                &copy; 2026 Wrishi Tech Studio. Crafted with modern web tech.
+            </p>
+            <div class="flex items-center gap-4 text-slate-400">
+                <a href="https://www.linkedin.com/in/wrishikesh-chowdhury-103000260" target="_blank" rel="noopener" class="hover:text-white transition-colors">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </a>
+                <a href="https://wa.me/917602921338" target="_blank" rel="noopener" class="hover:text-brand-emerald transition-colors">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                </a>
+                <a href="mailto:wrishikeshchowdhury@gmail.com" class="hover:text-brand-cyan transition-colors">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Lead Capture Modal (Opens after 10 seconds or via button click) -->
+    <div id="quoteModal" class="fixed inset-0 z-50 flex items-center justify-center px-4 bg-slate-950/80 backdrop-blur-md hidden transition-opacity duration-300">
+        <div class="glass-card max-w-lg w-full rounded-3xl p-6 sm:p-8 border border-brand-500/30 relative shadow-2xl animate-float">
+            
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-full bg-slate-900/60 transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Modal Header -->
+            <div class="space-y-2 mb-6">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-emerald/20 text-brand-emerald text-xs font-mono">
+                    <i data-lucide="clock" class="w-3.5 h-3.5"></i> Quick WhatsApp Inquiry
+                </div>
+                <h3 class="text-2xl font-bold text-white">Get a Free Instant Quote</h3>
+                <p class="text-slate-400 text-xs">Fill out your details below and click submit. It will redirect directly to my WhatsApp!</p>
+            </div>
+
+            <!-- Form -->
+            <form id="whatsappForm" onsubmit="sendToWhatsApp(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-mono text-slate-300 mb-1">Your Name *</label>
+                    <input type="text" id="clientName" required placeholder="e.g. Rahul Sharma" 
+                           class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-sm focus:outline-none focus:border-brand-cyan transition-colors">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-mono text-slate-300 mb-1">Business / Company Name</label>
+                    <input type="text" id="businessName" placeholder="e.g. Apex Dental Care" 
+                           class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-sm focus:outline-none focus:border-brand-cyan transition-colors">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-mono text-slate-300 mb-1">Phone Number *</label>
+                        <input type="tel" id="clientPhone" required placeholder="e.g. 9876543210" 
+                               class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-sm focus:outline-none focus:border-brand-cyan transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-slate-300 mb-1">Service Needed *</label>
+                        <select id="serviceType" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-sm focus:outline-none focus:border-brand-cyan transition-colors">
+                            <option value="Modern Business Website">Business Website</option>
+                            <option value="Flutter Android Application">Flutter Android App</option>
+                            <option value="Web + Mobile App Bundle">Web & App Bundle</option>
+                            <option value="UI/UX Modernization">UI/UX Redesign</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-mono text-slate-300 mb-1">Project Details / Message</label>
+                    <textarea id="clientMessage" rows="3" placeholder="Briefly describe what website or app you need..." 
+                              class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-sm focus:outline-none focus:border-brand-cyan transition-colors resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-emerald to-brand-cyan hover:opacity-90 text-slate-950 font-extrabold flex items-center justify-center gap-2 shadow-lg shadow-brand-emerald/20 transition-all">
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                    Send Quote Request to WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Modal Controls
+        const modal = document.getElementById('quoteModal');
+
+        function openModal() {
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+
+        // Auto Open Modal after 10 seconds on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                // Only open if user hasn't opened or closed it explicitly
+                if (!sessionStorage.getItem('modalOpened')) {
+                    openModal();
+                    sessionStorage.setItem('modalOpened', 'true');
+                }
+            }, 10000); // 10000 ms = 10 seconds
+        });
+
+        // WhatsApp Direct Formatting Function
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('clientName').value.trim();
+            const business = document.getElementById('businessName').value.trim() || 'N/A';
+            const phone = document.getElementById('clientPhone').value.trim();
+            const service = document.getElementById('serviceType').value;
+            const message = document.getElementById('clientMessage').value.trim() || 'No additional details provided.';
+
+            // Construct neat formatted WhatsApp message
+            const text = 
+`Hello Wrishi Tech Studio! 👋
+
+I would like to inquire about a project:
+
+👤 *Client Name:* ${name}
+🏢 *Business Name:* ${business}
+📞 *Phone Number:* ${phone}
+🛠️ *Service Requested:* ${service}
+📝 *Project Details:* ${message}
+
+Looking forward to hearing from you!`;
+
+            // Encode for URL query string
+            const encodedText = encodeURIComponent(text);
+            const whatsappNumber = "917602921338";
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+
+            // Open WhatsApp directly
+            window.open(whatsappURL, '_blank');
+            closeModal();
+        }
     </script>
 </body>
 </html>
