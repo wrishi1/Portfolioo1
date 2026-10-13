@@ -311,6 +311,13 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--line); marg
   .brand img { width: 34px; height: 34px; }
   .hero h1 { font-size: 31px; }
 }
+/* ---- keep layout width locked to the screen (fixes zoom-out when the form opens) ---- */
+.page { overflow-x: clip; max-width: 100%; }
+.bg-glow { width: min(900px, 100%); max-width: 100%; }
+.bg-grid { max-width: 100%; }
+.modal { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; outline: none; }
+.overlay { overscroll-behavior: contain; touch-action: pan-y; }
+body.modal-open { overflow: hidden; }
 </style>
 </head>
 <body>
@@ -538,7 +545,7 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--line); marg
 
 <!-- popup -->
 <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="mTitle">
-  <div class="modal" id="modal">
+  <div class="modal" id="modal" tabindex="-1">
     <button class="x" type="button" id="closeBtn" aria-label="Close form">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
@@ -647,11 +654,15 @@ footer { position: relative; z-index: 1; border-top: 1px solid var(--line); marg
     if (overlay.classList.contains("on")) return;
     lastFocus = document.activeElement;
     overlay.classList.add("on");
-    var first = overlay.querySelector("input");
-    if (first) setTimeout(function () { try { first.focus({ preventScroll: true }); } catch (e) {} }, 60);
+    document.body.classList.add("modal-open");
+    var touch = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 700;
+    var target = touch ? document.getElementById("modal") : overlay.querySelector("input");
+    // on phones, don't focus a field automatically: it opens the keyboard and makes the browser zoom
+    if (target) setTimeout(function () { try { target.focus({ preventScroll: true }); } catch (e) {} }, 60);
   }
   function closeModal() {
     overlay.classList.remove("on");
+    document.body.classList.remove("modal-open");
     if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch (e) {} }
   }
   document.getElementById("closeBtn").addEventListener("click", closeModal);
